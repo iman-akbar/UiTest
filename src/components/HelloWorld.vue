@@ -14,7 +14,7 @@
           <a>What We Do</a>
         </v-col>
         <v-col class="mt-5">
-          <a>Product</a>
+          <a @click="goto('productData')">Product</a>
         </v-col>
         <v-col class="mt-5">
           <a>Contact</a>
@@ -24,30 +24,32 @@
     <v-img
       src="../assets/pngtree-modern-double-color-futuristic-neon-background-picture-image_1181573.jpg"
     ></v-img>
-    <h1 class="text-center">Product</h1>
-    <v-row class="ml-5 mr-5">
-      <v-col>
-        <v-card>
-          <v-card-text>
-            <p>Data</p>
-          </v-card-text>
-        </v-card>
-      </v-col>
-      <v-col>
-        <v-card>
-          <v-card-text>
-            <p>Data</p>
-          </v-card-text>
-        </v-card>
-      </v-col>
-      <v-col>
-        <v-card>
-          <v-card-text>
-            <p>Data</p>
-          </v-card-text>
-        </v-card>
-      </v-col>
-    </v-row>
+    <div ref="productData">
+      <h1 class="text-center">Product</h1>
+      <v-row class="ml-5 mr-5">
+        <v-col>
+          <v-card>
+            <v-card-text>
+              <p>Data</p>
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col>
+          <v-card>
+            <v-card-text>
+              <p>Data</p>
+            </v-card-text>
+          </v-card>
+        </v-col>
+        <v-col>
+          <v-card>
+            <v-card-text>
+              <p>Data</p>
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+    </div>
   </v-app>
 </template>
 
@@ -107,5 +109,14 @@ export default {
       },
     ],
   }),
+  methods: {
+    goto(refName) {
+      var element = this.$refs[refName];
+      console.log(element);
+      var top = element.offsetTop;
+      console.log(top);
+      window.scrollTo(0, top);
+    },
+  },
 };
 </script>
