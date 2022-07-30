@@ -1,11 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar
-      absolute
-      color="green"
-      elevate-on-scroll
-      scroll-target="#scrolling-techniques-7"
-    >
+    <v-app-bar absolute color="green" fixed>
       <v-row>
         <v-col class="ml-10" cols="6">
           <h1 style="margin-left: 100px">Logo</h1>
@@ -27,24 +22,10 @@
     <div ref="productData">
       <h1 class="text-center">Product</h1>
       <v-row class="ml-5 mr-5">
-        <v-col>
+        <v-col v-for="cardItem in cardItem" :key="cardItem">
           <v-card>
             <v-card-text>
-              <p>Data</p>
-            </v-card-text>
-          </v-card>
-        </v-col>
-        <v-col>
-          <v-card>
-            <v-card-text>
-              <p>Data</p>
-            </v-card-text>
-          </v-card>
-        </v-col>
-        <v-col>
-          <v-card>
-            <v-card-text>
-              <p>Data</p>
+              <p>{{ cardItem.text }}</p>
             </v-card-text>
           </v-card>
         </v-col>
@@ -58,6 +39,7 @@ export default {
   name: "HelloWorld",
 
   data: () => ({
+    cardItem: [{ text: "data 1" }, { text: "data 2" }, { text: "data 3" }],
     ecosystem: [
       {
         text: "vuetify-loader",
