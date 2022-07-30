@@ -12,7 +12,7 @@
           <a @click="goto('productData')">Product</a>
         </v-col>
         <v-col class="mt-5">
-          <a>Contact</a>
+          <a @click="goto('footer')">Contact</a>
         </v-col>
       </v-row>
     </v-app-bar>
@@ -33,33 +33,39 @@
         </v-col>
       </v-row>
     </div>
-    <v-footer class="mt-10" color=" blue dark" padless>
-      <v-row no-gutters>
-        <v-col>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quo
-          quidem aliquam accusantium quos placeat, magni neque sequi quod. Totam
-          dolor reprehenderit a, explicabo perferendis modi veniam eum sequi ad.
-        </v-col>
-        <v-col>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quo
-          quidem aliquam accusantium quos placeat, magni neque sequi quod. Totam
-          dolor reprehenderit a, explicabo perferendis modi veniam eum sequi ad.
-        </v-col>
-        <v-col>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quo
-          quidem aliquam accusantium quos placeat, magni neque sequi quod. Totam
-          dolor reprehenderit a, explicabo perferendis modi veniam eum sequi ad.
-        </v-col>
-        <v-col>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quo
-          quidem aliquam accusantium quos placeat, magni neque sequi quod. Totam
-          dolor reprehenderit a, explicabo perferendis modi veniam eum sequi ad.
-        </v-col>
-      </v-row>
-    </v-footer>
-    <v-footer color="black white--text" padless>
-      <p class="mt-2 ml-10">IACorp By IMAN AKBAR</p>
-    </v-footer>
+    <div ref="footer">
+      <v-footer class="mt-10" color=" blue dark" padless>
+        <v-row no-gutters>
+          <v-col>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quo
+            quidem aliquam accusantium quos placeat, magni neque sequi quod.
+            Totam dolor reprehenderit a, explicabo perferendis modi veniam eum
+            sequi ad.
+          </v-col>
+          <v-col>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quo
+            quidem aliquam accusantium quos placeat, magni neque sequi quod.
+            Totam dolor reprehenderit a, explicabo perferendis modi veniam eum
+            sequi ad.
+          </v-col>
+          <v-col>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quo
+            quidem aliquam accusantium quos placeat, magni neque sequi quod.
+            Totam dolor reprehenderit a, explicabo perferendis modi veniam eum
+            sequi ad.
+          </v-col>
+          <v-col>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quo
+            quidem aliquam accusantium quos placeat, magni neque sequi quod.
+            Totam dolor reprehenderit a, explicabo perferendis modi veniam eum
+            sequi ad.
+          </v-col>
+        </v-row>
+      </v-footer>
+      <v-footer color="black white--text" padless>
+        <p class="mt-2 ml-10">IACorp By IMAN AKBAR</p>
+      </v-footer>
+    </div>
   </v-app>
 </template>
 
