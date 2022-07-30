@@ -1,12 +1,12 @@
 <template>
   <v-app>
-    <v-app-bar absolute color="green" fixed>
+    <v-app-bar color="green" fixed>
       <v-row>
         <v-col class="ml-10" cols="6">
           <h1 style="margin-left: 100px">Logo</h1>
         </v-col>
         <v-col class="mt-5">
-          <a>What We Do</a>
+          <a @click="goto('WhatweDo')">What We Do</a>
         </v-col>
         <v-col class="mt-5">
           <a @click="goto('productData')">Product</a>
@@ -16,9 +16,11 @@
         </v-col>
       </v-row>
     </v-app-bar>
-    <v-img
-      src="../assets/pngtree-modern-double-color-futuristic-neon-background-picture-image_1181573.jpg"
-    ></v-img>
+    <div ref="WhatweDo">
+      <v-img
+        src="../assets/pngtree-modern-double-color-futuristic-neon-background-picture-image_1181573.jpg"
+      ></v-img>
+    </div>
     <div ref="productData">
       <h1 class="text-center">Product</h1>
       <v-row class="ml-5 mr-5">
@@ -31,6 +33,33 @@
         </v-col>
       </v-row>
     </div>
+    <v-footer class="mt-10" color=" blue dark" padless>
+      <v-row no-gutters>
+        <v-col>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quo
+          quidem aliquam accusantium quos placeat, magni neque sequi quod. Totam
+          dolor reprehenderit a, explicabo perferendis modi veniam eum sequi ad.
+        </v-col>
+        <v-col>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quo
+          quidem aliquam accusantium quos placeat, magni neque sequi quod. Totam
+          dolor reprehenderit a, explicabo perferendis modi veniam eum sequi ad.
+        </v-col>
+        <v-col>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quo
+          quidem aliquam accusantium quos placeat, magni neque sequi quod. Totam
+          dolor reprehenderit a, explicabo perferendis modi veniam eum sequi ad.
+        </v-col>
+        <v-col>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quo
+          quidem aliquam accusantium quos placeat, magni neque sequi quod. Totam
+          dolor reprehenderit a, explicabo perferendis modi veniam eum sequi ad.
+        </v-col>
+      </v-row>
+    </v-footer>
+    <v-footer color="black white--text" padless>
+      <p class="mt-2 ml-10">IACorp By IMAN AKBAR</p>
+    </v-footer>
   </v-app>
 </template>
 
