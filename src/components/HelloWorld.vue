@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar color="green" fixed>
+    <v-app-bar color="white" fixed>
       <v-row>
         <v-col class="ml-10" cols="6">
           <h1 style="margin-left: 100px">Logo</h1>
@@ -14,24 +14,63 @@
         <v-col class="mt-5">
           <a @click="goto('footer')">Contact</a>
         </v-col>
+        <v-col class="mt-5">
+          <a @click="goto('about')">About</a>
+        </v-col>
       </v-row>
     </v-app-bar>
     <div ref="WhatweDo">
-      <v-img
-        src="../assets/pngtree-modern-double-color-futuristic-neon-background-picture-image_1181573.jpg"
-      ></v-img>
+      <!-- <v-carousel-item
+        v-for="(image, i) in image"
+        :key="i"
+        :src="image.src"
+        reverse-transition="fade-transition"
+        transition="fade-transition"
+      ></v-carousel-item> -->
+      <v-img src="../assets/Screenshot 2022-07-31 at 2.18.55 AM.png"></v-img>
     </div>
-    <div ref="productData">
+    <div ref="productData" class="mt-5">
       <h1 class="text-center">Product</h1>
+      <p class="text-center" style="color: #5800ff">
+        Behavioural Analytics as a Service
+      </p>
+      <p class="text-center">
+        Everyone has Personal biases, subconscious behaviours <br />that affect
+        our decisions, but there biases should not <br />
+        cost you money
+      </p>
       <v-row class="ml-5 mr-5">
         <v-col v-for="cardItem in cardItem" :key="cardItem">
           <v-card>
+            <v-card-title class="justify-center">
+              <p class="text-center" style="color: #5800ff">
+                {{ cardItem.title }}
+              </p>
+            </v-card-title>
             <v-card-text>
-              <p>{{ cardItem.text }}</p>
+              <p class="text-center">
+                {{ cardItem.text }}
+                <span style="color: #5800ff">{{ cardItem.text2 }}</span>
+              </p>
             </v-card-text>
           </v-card>
         </v-col>
       </v-row>
+    </div>
+    <div ref="about" class="mt-10">
+      <h1 class="text-center">About</h1>
+      <p class="text-center" style="color: #5800ff">
+        An early-stage Fintech Start-up base in Cyprus
+      </p>
+      <p class="text-center">
+        Developing an AI platform that provides valueable Behavioural
+        <br />Advice to every type of retail investor, regardless of their
+        <br />
+        axperience, trading style or asset preference
+      </p>
+      <p class="text-center" style="color: #5800ff">
+        Curently in "Stealth Mode"
+      </p>
     </div>
     <div ref="footer">
       <v-footer class="mt-10" color=" blue dark" padless>
@@ -74,7 +113,31 @@ export default {
   name: "HelloWorld",
 
   data: () => ({
-    cardItem: [{ text: "data 1" }, { text: "data 2" }, { text: "data 3" }],
+    cardItem: [
+      {
+        title: " Tailored Advice",
+        text: "Forget generic solution; our software focused on you, the investor, and what you can control to",
+        text2: "Earn Money",
+      },
+      {
+        title: " Transparent Approach",
+        text: "No more black-boxes; witness the evidence supporting our findings with unique visualization that",
+        text2: "bring your date to life",
+      },
+      {
+        title: "Skill Development",
+        text: "Continue trading actively; while we help optimise your performance, you always remain incharge and",
+        text2: "call all the shots",
+      },
+    ],
+    image: [
+      {
+        src: "../assets/digit/digital-graph-with-businessman-hand-overlay-MODIFIED.png",
+      },
+      {
+        src: "../assets/digit/tg_logo (1).png",
+      },
+    ],
   }),
   methods: {
     goto(refName) {
