@@ -1,24 +1,20 @@
 <template>
   <v-app>
-    <v-app-bar color="blue-grey darken-3" height="75" fixed>
+    <v-app-bar color="blue-grey darken-3" height="90" fixed>
       <v-row>
         <v-col class="ml-10" cols="8">
-          <v-img
-            height="75"
-            width="200"
-            src="../assets/tg_logo (2).png"
-          ></v-img>
+          <v-img height="90" width="240" src="../assets/new_logo.png"></v-img>
         </v-col>
-        <v-col class="mt-9">
+        <v-col class="mt-13">
           <a @click="goto('about')" style="color: white">About</a>
         </v-col>
-        <v-col class="mt-9">
+        <v-col class="mt-13">
           <a @click="goto('product')" style="color: white">Product</a>
         </v-col>
-        <v-col class="mt-9">
+        <v-col class="mt-13">
           <a @click="goto('team')" style="color: white">Team</a>
         </v-col>
-        <v-col class="mt-9">
+        <v-col class="mt-13">
           <a @click="goto('contact_us')" style="color: white">Contact Us</a>
         </v-col>
       </v-row>
