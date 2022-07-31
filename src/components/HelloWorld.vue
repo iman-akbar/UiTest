@@ -1,38 +1,56 @@
 <template>
   <v-app>
-    <v-app-bar color="white" fixed>
+    <v-app-bar color="blue-grey darken-3" height="75" fixed>
       <v-row>
-        <v-col class="ml-10" cols="6">
-          <h1 style="margin-left: 100px">Logo</h1>
+        <v-col class="ml-10" cols="8">
+          <v-img
+            height="75"
+            width="200"
+            src="../assets/tg_logo (2).png"
+          ></v-img>
         </v-col>
-        <v-col class="mt-5">
-          <a @click="goto('WhatweDo')">What We Do</a>
+        <v-col class="mt-9">
+          <a @click="goto('about')" style="color: white">About</a>
         </v-col>
-        <v-col class="mt-5">
-          <a @click="goto('productData')">Product</a>
+        <v-col class="mt-9">
+          <a @click="goto('product')" style="color: white">Product</a>
         </v-col>
-        <v-col class="mt-5">
-          <a @click="goto('footer')">Contact</a>
+        <v-col class="mt-9">
+          <a @click="goto('team')" style="color: white">Team</a>
         </v-col>
-        <v-col class="mt-5">
-          <a @click="goto('about')">About</a>
+        <v-col class="mt-9">
+          <a @click="goto('contact_us')" style="color: white">Contact Us</a>
         </v-col>
       </v-row>
     </v-app-bar>
-    <div ref="WhatweDo">
-      <!-- <v-carousel-item
-        v-for="(image, i) in image"
-        :key="i"
-        :src="image.src"
-        reverse-transition="fade-transition"
-        transition="fade-transition"
-      ></v-carousel-item> -->
-      <v-img src="../assets/Screenshot 2022-07-31 at 2.18.55 AM.png"></v-img>
+    <div>
+      <v-img
+        height="750"
+        src="../assets/digital-graph-with-businessman-hand-overlay-MODIFIED (1).png"
+      ></v-img>
     </div>
-    <div ref="productData" class="mt-5">
+    <div ref="about" class="mt-10">
+      <h1 class="text-center">About</h1>
+      <p class="text-center" style="color: #5800ff">
+        <strong>An early-stage Fintech Start-up base in Cyprus</strong>
+      </p>
+      <p class="text-center">
+        Developing an AI platform that provides valueable Behavioural
+        <br />Advice to every type of retail investor, regardless of their
+        <br />
+        experience, trading style or asset preference
+      </p>
+      <p class="text-center" style="color: #5800ff">
+        <strong>Curently in "Stealth Mode" </strong>
+      </p>
+    </div>
+    <br />
+    <br />
+    <br /><br />
+    <div ref="product" class="mt-5">
       <h1 class="text-center">Product</h1>
       <p class="text-center" style="color: #5800ff">
-        Behavioural Analytics as a Service
+        <strong>Behavioural Analytics as a Service</strong>
       </p>
       <p class="text-center">
         Everyone has Personal biases, subconscious behaviours <br />that affect
@@ -50,59 +68,29 @@
             <v-card-text>
               <p class="text-center">
                 {{ cardItem.text }}
-                <span style="color: #5800ff">{{ cardItem.text2 }}</span>
+                <span style="color: #5800ff"
+                  ><strong>{{ cardItem.text2 }}</strong></span
+                >
               </p>
             </v-card-text>
           </v-card>
         </v-col>
       </v-row>
     </div>
-    <div ref="about" class="mt-10">
-      <h1 class="text-center">About</h1>
-      <p class="text-center" style="color: #5800ff">
-        An early-stage Fintech Start-up base in Cyprus
-      </p>
-      <p class="text-center">
-        Developing an AI platform that provides valueable Behavioural
-        <br />Advice to every type of retail investor, regardless of their
-        <br />
-        axperience, trading style or asset preference
-      </p>
-      <p class="text-center" style="color: #5800ff">
-        Curently in "Stealth Mode"
-      </p>
-    </div>
-    <div ref="footer">
-      <v-footer class="mt-10" color=" blue dark" padless>
-        <v-row no-gutters>
+    <br />
+    <br />
+    <br /><br />
+    <div>
+      <v-footer color="blue-grey darken-3 white--text" padless>
+        <v-row>
+          <v-col cols="3"> </v-col>
           <v-col>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quo
-            quidem aliquam accusantium quos placeat, magni neque sequi quod.
-            Totam dolor reprehenderit a, explicabo perferendis modi veniam eum
-            sequi ad.
-          </v-col>
-          <v-col>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quo
-            quidem aliquam accusantium quos placeat, magni neque sequi quod.
-            Totam dolor reprehenderit a, explicabo perferendis modi veniam eum
-            sequi ad.
-          </v-col>
-          <v-col>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quo
-            quidem aliquam accusantium quos placeat, magni neque sequi quod.
-            Totam dolor reprehenderit a, explicabo perferendis modi veniam eum
-            sequi ad.
-          </v-col>
-          <v-col>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quo
-            quidem aliquam accusantium quos placeat, magni neque sequi quod.
-            Totam dolor reprehenderit a, explicabo perferendis modi veniam eum
-            sequi ad.
+            <p class="mt-4">
+              Confidential and Proprietary. Copyright (c) tradegenie.ai. All
+              Rights Reserved. Contact email: alex.papa@tradegenie.ai
+            </p>
           </v-col>
         </v-row>
-      </v-footer>
-      <v-footer color="black white--text" padless>
-        <p class="mt-2 ml-10">IACorp By IMAN AKBAR</p>
       </v-footer>
     </div>
   </v-app>
@@ -135,7 +123,7 @@ export default {
         src: "../assets/digit/digital-graph-with-businessman-hand-overlay-MODIFIED.png",
       },
       {
-        src: "../assets/digit/tg_logo (1).png",
+        src: "../assets/digit/tg_logo (2).png",
       },
     ],
   }),
