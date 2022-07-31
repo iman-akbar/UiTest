@@ -83,9 +83,8 @@
     <div>
       <v-footer color="blue-grey darken-3 white--text" padless>
         <v-row>
-          <v-col cols="3"> </v-col>
           <v-col>
-            <p class="mt-4">
+            <p class="text-center mt-4">
               Confidential and Proprietary. Copyright (c) tradegenie.ai. All
               Rights Reserved. Contact email: alex.papa@tradegenie.ai
             </p>
