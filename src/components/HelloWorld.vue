@@ -3,7 +3,12 @@
     <v-app-bar color="blue-grey darken-3" height="90" fixed>
       <v-row>
         <v-col class="ml-10" cols="8">
-          <v-img height="90" width="240" src="../assets/new_logo.png"></v-img>
+          <v-img
+            v-on:click="action1"
+            height="90"
+            width="240"
+            src="../assets/new_logo.png"
+          ></v-img>
         </v-col>
         <v-col class="mt-13">
           <a @click="goto('about')" style="color: white">About</a>
@@ -26,6 +31,7 @@
       ></v-img>
     </div>
     <div ref="about" class="mt-10">
+      <div></div>
       <h1 class="text-center">About</h1>
       <p class="text-center" style="color: #5800ff">
         <strong>An early-stage Fintech Start-up base in Cyprus</strong>
@@ -97,16 +103,33 @@
           </v-col>
         </v-row>
       </div>
-      <div ref="contact" class="mt-5">
-        <h1 class="text-center">Team</h1>
-        <v-card class="mx-auto mt-5" max-width="600" color="#F7F7F7">
+      <div ref="contact" class="mt-5 mb-16">
+        <h1 class="text-center">Contact Us</h1>
+        <v-card class="mx-auto mt-5" max-width="1000" color="#F7F7F7">
           <v-row>
             <v-col>
-              <p>Contant Us</p>
+              <p class="text-center"><b>Contact Us</b></p>
+              <v-row>
+                <v-col class="ml-5">
+                  <p>Name *</p>
+                  <v-text-field outlined dense></v-text-field>
+                </v-col>
+                <v-col>
+                  <p>Email *</p>
+                  <v-text-field outlined dense></v-text-field>
+                </v-col>
+              </v-row>
+              <p class="ml-5">Write a message</p>
+              <v-textarea
+                name="input-7-1"
+                outlined
+                auto-grow
+                class="ml-5"
+              ></v-textarea>
+              <v-btn class="ml-5" x-large color="secondary">SUBMIT</v-btn>
             </v-col>
-            <v-col>
-              <p>asdasda</p>
-            </v-col>
+            <v-divider vertical></v-divider>
+            <v-col>sdsds </v-col>
           </v-row>
         </v-card>
       </div>
@@ -174,12 +197,19 @@ export default {
     ],
   }),
   methods: {
+    action1() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    },
     goto(refName) {
       var element = this.$refs[refName];
       console.log(element);
-      var top = element.offsetTop;
+      // var top = element.offsetTop;
       console.log(top);
-      window.scrollTo(0, top);
+      // window.scrollTo(0, top - 100);
+      window.scrollTo({
+        top: element.offsetTop - 100,
+        behavior: "smooth",
+      });
     },
   },
 };
