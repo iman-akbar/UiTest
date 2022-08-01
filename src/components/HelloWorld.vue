@@ -77,59 +77,38 @@
       <div ref="team" class="mt-5">
         <h1 class="text-center">Team</h1>
         <v-row align="center" justify="center">
-          <v-col>
+          <v-col v-for="teamItem in teamItem" :key="teamItem">
             <div class="text-center ml-3">
               <v-avatar tile color="blue" size="170">
                 <img
-                  src="../assets/pngtree-modern-double-color-futuristic-neon-background-picture-image_1181573.jpg"
-                  alt="John"
+                  :src="require(`../assets/${teamItem.photo}`)"
+                  alt="foto"
+                  class="img-card"
                 />
               </v-avatar>
-              <p style="color: #5800ff">alex</p>
-              <p>
-                Managing director driving our strategic vision<br />
-                and commercial success
-              </p>
+              <p style="color: #5800ff">{{ teamItem.name }}</p>
+              <p>{{ teamItem.role }}</p>
               <v-card class="mx-auto" max-width="600">
                 <p>
-                  Alex has owked with major financial institutions across the
-                  UK, Ireland and Cyprus, incuding a Stock Exchange, a major
-                  Broker and various Asset Manager & Hedge funs. Alex draws upon
-                  these experiences and his knowledge of business, finance, and
-                  data science to turn a novel concept into the go-to
-                  behavioural analytics platform for retail investor trading
-                  online
-                </p>
-              </v-card>
-            </div>
-          </v-col>
-          <v-col>
-            <div class="text-center mr-3">
-              <v-avatar tile color="blue" size="170">
-                <img
-                  src="../assets/pngtree-modern-double-color-futuristic-neon-background-picture-image_1181573.jpg"
-                  alt="John"
-                />
-              </v-avatar>
-              <p style="color: #5800ff">alex</p>
-              <p>
-                Managing director driving our strategic vision<br />
-                and commercial success
-              </p>
-              <v-card class="mx-auto" max-width="600">
-                <p>
-                  Alex has owked with major financial institutions across the
-                  UK, Ireland and Cyprus, incuding a Stock Exchange, a major
-                  Broker and various Asset Manager & Hedge funs. Alex draws upon
-                  these experiences and his knowledge of business, finance, and
-                  data science to turn a novel concept into the go-to
-                  behavioural analytics platform for retail investor trading
-                  online
+                  {{ teamItem.description }}
                 </p>
               </v-card>
             </div>
           </v-col>
         </v-row>
+      </div>
+      <div ref="contact" class="mt-5">
+        <h1 class="text-center">Team</h1>
+        <v-card class="mx-auto mt-5" max-width="600" color="#F7F7F7">
+          <v-row>
+            <v-col>
+              <p>Contant Us</p>
+            </v-col>
+            <v-col>
+              <p>asdasda</p>
+            </v-col>
+          </v-row>
+        </v-card>
       </div>
       <v-footer color="blue-grey darken-3 white--text" padless>
         <v-row>
@@ -150,6 +129,24 @@ export default {
   name: "HelloWorld",
 
   data: () => ({
+    teamItem: [
+      {
+        photo:
+          "pngtree-modern-double-color-futuristic-neon-background-picture-image_1181573.jpg",
+        name: "alex",
+        role: "Managing director driving our strategic vision and commercial success",
+        description:
+          "Alex has owked with major financial institutions across the UK, Ireland and Cyprus, incuding a Stock Exchange, a major Broker and various Asset Manager & Hedge funs. Alex draws upon these experiences and his knowledge of business, finance, and data science to turn a novel concept into the go-to behavioural analytics platform for retail investor trading online",
+      },
+      {
+        photo:
+          "pngtree-modern-double-color-futuristic-neon-background-picture-image_1181573.jpg",
+        name: "alex",
+        role: "Managing director driving our strategic vision and commercial success",
+        description:
+          "Alex has owked with major financial institutions across the UK, Ireland and Cyprus, incuding a Stock Exchange, a major Broker and various Asset Manager & Hedge funs. Alex draws upon these experiences and his knowledge of business, finance, and data science to turn a novel concept into the go-to behavioural analytics platform for retail investor trading online",
+      },
+    ],
     cardItem: [
       {
         title: " Tailored Advice",
