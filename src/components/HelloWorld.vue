@@ -73,10 +73,64 @@
         </v-col>
       </v-row>
     </div>
-    <br />
-    <br />
-    <br /><br />
     <div>
+      <div ref="team" class="mt-5">
+        <h1 class="text-center">Team</h1>
+        <v-row align="center" justify="center">
+          <v-col>
+            <div class="text-center ml-3">
+              <v-avatar tile color="blue" size="170">
+                <img
+                  src="../assets/pngtree-modern-double-color-futuristic-neon-background-picture-image_1181573.jpg"
+                  alt="John"
+                />
+              </v-avatar>
+              <p style="color: #5800ff">alex</p>
+              <p>
+                Managing director driving our strategic vision<br />
+                and commercial success
+              </p>
+              <v-card class="mx-auto" max-width="600">
+                <p>
+                  Alex has owked with major financial institutions across the
+                  UK, Ireland and Cyprus, incuding a Stock Exchange, a major
+                  Broker and various Asset Manager & Hedge funs. Alex draws upon
+                  these experiences and his knowledge of business, finance, and
+                  data science to turn a novel concept into the go-to
+                  behavioural analytics platform for retail investor trading
+                  online
+                </p>
+              </v-card>
+            </div>
+          </v-col>
+          <v-col>
+            <div class="text-center mr-3">
+              <v-avatar tile color="blue" size="170">
+                <img
+                  src="../assets/pngtree-modern-double-color-futuristic-neon-background-picture-image_1181573.jpg"
+                  alt="John"
+                />
+              </v-avatar>
+              <p style="color: #5800ff">alex</p>
+              <p>
+                Managing director driving our strategic vision<br />
+                and commercial success
+              </p>
+              <v-card class="mx-auto" max-width="600">
+                <p>
+                  Alex has owked with major financial institutions across the
+                  UK, Ireland and Cyprus, incuding a Stock Exchange, a major
+                  Broker and various Asset Manager & Hedge funs. Alex draws upon
+                  these experiences and his knowledge of business, finance, and
+                  data science to turn a novel concept into the go-to
+                  behavioural analytics platform for retail investor trading
+                  online
+                </p>
+              </v-card>
+            </div>
+          </v-col>
+        </v-row>
+      </div>
       <v-footer color="blue-grey darken-3 white--text" padless>
         <v-row>
           <v-col>
