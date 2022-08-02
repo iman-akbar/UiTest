@@ -80,8 +80,8 @@
       </v-row>
     </div>
     <div>
-      <div ref="team" class="mt-5">
-        <h1 class="text-center">Team</h1>
+      <div ref="team" class="contactPart mt-5" style="margin-top: 200px">
+        <h1 class="teamPart text-center">Team</h1>
         <v-row align="center" justify="center">
           <v-col v-for="teamItem in teamItem" :key="teamItem">
             <div class="text-center ml-3">
@@ -103,33 +103,44 @@
           </v-col>
         </v-row>
       </div>
-      <div ref="contact" class="mt-5 mb-16">
-        <h1 class="text-center">Contact Us</h1>
+      <div ref="contact" class="mt-16 mb-16">
+        <h1 class="contactPart text-center">Contact Us</h1>
         <v-card class="mx-auto mt-5" max-width="1000" color="#F7F7F7">
           <v-row>
-            <v-col>
-              <p class="text-center"><b>Contact Us</b></p>
+            <v-col class="ml-5">
               <v-row>
-                <v-col class="ml-5">
-                  <p>Name *</p>
-                  <v-text-field outlined dense></v-text-field>
+                <v-col cols="auto">
+                  <font-awesome-icon icon="fa-solid fa-location-dot" />
                 </v-col>
-                <v-col>
-                  <p>Email *</p>
-                  <v-text-field outlined dense></v-text-field>
+                <v-col cols="auto">
+                  <p>xxx-xxxx <br />yyy-yyy-yyy<br />zzz-zzz-zzz</p>
                 </v-col>
               </v-row>
-              <p class="ml-5">Write a message</p>
-              <v-textarea
-                name="input-7-1"
-                outlined
-                auto-grow
-                class="ml-5"
-              ></v-textarea>
-              <v-btn class="ml-5" x-large color="secondary">SUBMIT</v-btn>
+              <v-row>
+                <v-col cols="auto">
+                  <font-awesome-icon icon="fa-solid fa-phone" />
+                </v-col>
+                <v-col> +111-111-1111-1111111 </v-col>
+              </v-row>
+              <v-row>
+                <v-col cols="auto">
+                  <font-awesome-icon icon="fa-solid fa-envelope" />
+                </v-col>
+                <v-col> zzzzzzz@gmail.com </v-col>
+              </v-row>
             </v-col>
-            <v-divider vertical></v-divider>
-            <v-col>sdsds </v-col>
+            <v-divider
+              vertical
+              style="border-color: black !important"
+            ></v-divider>
+            <v-col align="center" style="margin-top: 5%"
+              ><v-img
+                v-on:click="page()"
+                height="50"
+                width="50"
+                src="../assets/LI-In-Bug4.png"
+              ></v-img>
+            </v-col>
           </v-row>
         </v-card>
       </div>
@@ -197,6 +208,9 @@ export default {
     ],
   }),
   methods: {
+    page() {
+      window.open("https://www.google.com/");
+    },
     action1() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     },
@@ -214,3 +228,11 @@ export default {
   },
 };
 </script>
+<style>
+.contactPart {
+  margin-top: 10%;
+}
+.teamPart {
+  margin-top: 10%;
+}
+</style>
