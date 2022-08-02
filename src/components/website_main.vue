@@ -30,7 +30,7 @@
         src="../assets/digital-graph-with-businessman-hand-overlay-MODIFIED (1).png"
       ></v-img>
     </div>
-    <div ref="about" class="mt-10">
+    <div ref="about" class="aboutref mt-10">
       <h1 class="aboutPart text-center">About</h1>
       <p class="text-center" style="color: #5800ff">
         <strong>An early-stage Fintech Start-up base in Cyprus</strong>
@@ -48,7 +48,7 @@
     <br />
     <br />
     <br /><br />
-    <div ref="product" class="mt-5">
+    <div ref="product" class="productref mt-5">
       <h1 class="productPart text-center">Product</h1>
       <p class="text-center" style="color: #5800ff">
         <strong>Behavioural Analytics as a Service</strong>
@@ -79,7 +79,7 @@
       </v-row>
     </div>
     <div>
-      <div ref="team" class="contactPart mt-5" style="margin-top: 200px">
+      <div ref="team" class="teamref mt-5" style="margin-top: 200px">
         <h1 class="teamPart text-center">Team</h1>
         <v-row align="center" justify="center">
           <v-col v-for="teamItem in teamItem" :key="teamItem">
@@ -243,5 +243,14 @@ export default {
 }
 .aboutPart {
   margin-bottom: 3%;
+}
+.aboutref {
+  margin-bottom: 15%;
+}
+.productref {
+  margin-bottom: 5%;
+}
+.teamref {
+  margin-bottom: 15%;
 }
 </style>
