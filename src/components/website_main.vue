@@ -20,7 +20,7 @@
           <a @click="goto('team')" style="color: white">Team</a>
         </v-col>
         <v-col class="mt-13">
-          <a @click="goto('contact_us')" style="color: white">Contact Us</a>
+          <a @click="goto('contact')" style="color: white">Contact Us</a>
         </v-col>
       </v-row>
     </v-app-bar>
@@ -31,8 +31,7 @@
       ></v-img>
     </div>
     <div ref="about" class="mt-10">
-      <div></div>
-      <h1 class="text-center">About</h1>
+      <h1 class="aboutPart text-center">About</h1>
       <p class="text-center" style="color: #5800ff">
         <strong>An early-stage Fintech Start-up base in Cyprus</strong>
       </p>
@@ -50,7 +49,7 @@
     <br />
     <br /><br />
     <div ref="product" class="mt-5">
-      <h1 class="text-center">Product</h1>
+      <h1 class="productPart text-center">Product</h1>
       <p class="text-center" style="color: #5800ff">
         <strong>Behavioural Analytics as a Service</strong>
       </p>
@@ -133,8 +132,10 @@
               vertical
               style="border-color: black !important"
             ></v-divider>
-            <v-col align="center" style="margin-top: 5%"
-              ><v-img
+            <v-col align="center">
+              <h1>FOLLOW US</h1>
+              <v-img
+                style="margin-top: 5%"
                 v-on:click="page()"
                 height="50"
                 width="50"
@@ -160,7 +161,7 @@
 
 <script>
 export default {
-  name: "HelloWorld",
+  name: "website_main",
 
   data: () => ({
     teamItem: [
@@ -231,8 +232,16 @@ export default {
 <style>
 .contactPart {
   margin-top: 10%;
+  margin-bottom: 5%;
 }
 .teamPart {
   margin-top: 10%;
+  margin-bottom: 5%;
+}
+.productPart {
+  margin-bottom: 5%;
+}
+.aboutPart {
+  margin-bottom: 3%;
 }
 </style>

@@ -3,13 +3,13 @@
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
+import website_main from "../components/website_main";
 
-  export default {
-    name: 'Home',
+export default {
+  name: "Home",
 
-    components: {
-      HelloWorld,
-    },
-  }
+  components: {
+    website_main,
+  },
+};
 </script>
