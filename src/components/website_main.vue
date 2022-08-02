@@ -244,13 +244,4 @@ export default {
 .aboutPart {
   margin-bottom: 3%;
 }
-.aboutref {
-  margin-bottom: 15%;
-}
-.productref {
-  margin-bottom: 5%;
-}
-.teamref {
-  margin-bottom: 15%;
-}
 </style>
