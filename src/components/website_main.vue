@@ -174,11 +174,8 @@
             </p>
           </v-col>
         </v-row>
-        <div v-if="!isMobile">desktop</div>
-        <div v-else>mobile</div>
       </v-footer>
     </div>
-    <v-dialog :fullscreen="$vuetify.breakpoint.mobile"> ... </v-dialog>
   </v-app>
 </template>
 
@@ -192,10 +189,8 @@ export default {
     items: [
       { path: "about", title: "About" },
       { path: "product", title: "Product" },
-      { path: "/page3", title: "Image Classification" },
       { path: "team", title: "Team" },
       { path: "contact", title: "Contact Us" },
-      // { path: "/credit", title: "credit score" },
     ],
 
     teamItem: [
