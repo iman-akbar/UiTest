@@ -25,7 +25,9 @@
         <v-col class="mt-7" v-if="isMobile" align="right">
           <v-menu bottom offset-y>
             <template v-slot:activator="{ on, attrs }">
-              <v-btn dark icon v-bind="attrs" v-on="on">MENU</v-btn>
+              <v-btn dark icon v-bind="attrs" v-on="on"
+                ><v-app-bar-nav-icon></v-app-bar-nav-icon
+              ></v-btn>
             </template>
 
             <v-list>
