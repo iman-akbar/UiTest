@@ -23,7 +23,7 @@
           <a @click="goto('contact')" style="color: white">Contact Us</a>
         </v-col>
         <v-col class="mt-7" v-if="isMobile" align="right">
-          <v-menu open-on-hover bottom offset-y>
+          <v-menu bottom offset-y>
             <template v-slot:activator="{ on, attrs }">
               <v-btn dark icon v-bind="attrs" v-on="on">MENU</v-btn>
             </template>
