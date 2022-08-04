@@ -10,17 +10,37 @@
             src="../assets/new_logo.png"
           ></v-img>
         </v-col>
-        <v-col class="mt-13">
+        <v-col v-if="!isMobile" class="mt-13">
           <a @click="goto('about')" style="color: white">About</a>
         </v-col>
-        <v-col class="mt-13">
+        <v-col v-if="!isMobile" class="mt-13">
           <a @click="goto('product')" style="color: white">Product</a>
         </v-col>
-        <v-col class="mt-13">
+        <v-col v-if="!isMobile" class="mt-13">
           <a @click="goto('team')" style="color: white">Team</a>
         </v-col>
-        <v-col class="mt-13">
+        <v-col v-if="!isMobile" class="mt-13">
           <a @click="goto('contact')" style="color: white">Contact Us</a>
+        </v-col>
+        <v-col class="mt-7" v-if="isMobile" align="right">
+          <v-menu open-on-hover bottom offset-y>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn dark icon v-bind="attrs" v-on="on">MENU</v-btn>
+            </template>
+
+            <v-list>
+              <v-list-item
+                v-for="i in items"
+                :key="i"
+                router
+                @click="moving(i.path)"
+              >
+                <v-list-item-title class="down">{{
+                  i.title
+                }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
         </v-col>
       </v-row>
     </v-app-bar>
@@ -154,8 +174,11 @@
             </p>
           </v-col>
         </v-row>
+        <div v-if="!isMobile">desktop</div>
+        <div v-else>mobile</div>
       </v-footer>
     </div>
+    <v-dialog :fullscreen="$vuetify.breakpoint.mobile"> ... </v-dialog>
   </v-app>
 </template>
 
@@ -164,6 +187,17 @@ export default {
   name: "website_main",
 
   data: () => ({
+    drawer: false,
+    ProductOpen: false,
+    items: [
+      { path: "about", title: "About" },
+      { path: "product", title: "Product" },
+      { path: "/page3", title: "Image Classification" },
+      { path: "team", title: "Team" },
+      { path: "contact", title: "Contact Us" },
+      // { path: "/credit", title: "credit score" },
+    ],
+
     teamItem: [
       {
         photo:
@@ -207,8 +241,29 @@ export default {
         src: "../assets/digit/tg_logo (2).png",
       },
     ],
+    isMobile: false,
   }),
+  mounted() {
+    this.onResize();
+    window.addEventListener("resize", this.onResize, { passive: true });
+  },
+  // beforeDestroy() {
+  //   if (typeof window !== "undefined") {
+  //     window.removeEventListener("resize", this.onResize, { passive: true });
+  //   }
+  // },
   methods: {
+    moving(e) {
+      this.goto(e);
+    },
+    OpenProduct() {
+      this.ProductOpen = false;
+      console.log("try");
+    },
+
+    onResize() {
+      this.isMobile = window.innerWidth < 1400;
+    },
     page() {
       window.open("https://www.google.com/");
     },
