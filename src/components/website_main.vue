@@ -4,7 +4,7 @@
       <v-row>
         <v-col class="ml-10" cols="8">
           <v-img
-            v-on:click="action1"
+            @click="action1"
             height="90"
             width="240"
             src="../assets/new_logo.png"
@@ -104,10 +104,11 @@
       <div ref="team" class="teamref mt-5" style="margin-top: 200px">
         <h1 class="teamPart text-center">Team</h1>
         <v-row align="center" justify="center">
-          <v-col v-for="teamItem in teamItem" :key="teamItem">
+          <v-col v-for="(teamItem, index) in teamItem" :key="teamItem">
             <div class="text-center ml-3">
               <v-avatar tile color="blue" size="170">
                 <img
+                  @click="itemToShow = index"
                   :src="require(`../assets/${teamItem.photo}`)"
                   alt="foto"
                   class="img-card"
@@ -115,11 +116,17 @@
               </v-avatar>
               <p style="color: #5800ff">{{ teamItem.name }}</p>
               <p>{{ teamItem.role }}</p>
-              <v-card class="mx-auto" max-width="600">
-                <p>
-                  {{ teamItem.description }}
-                </p>
-              </v-card>
+              <div class="mt-16">
+                <v-card
+                  v-show="itemToShow == index"
+                  class="mx-auto"
+                  max-width="600"
+                >
+                  <p>
+                    {{ teamItem.description }}
+                  </p>
+                </v-card>
+              </div>
             </div>
           </v-col>
         </v-row>
@@ -131,23 +138,9 @@
             <v-col class="ml-5">
               <v-row>
                 <v-col cols="auto">
-                  <font-awesome-icon icon="fa-solid fa-location-dot" />
-                </v-col>
-                <v-col cols="auto">
-                  <p>xxx-xxxx <br />yyy-yyy-yyy<br />zzz-zzz-zzz</p>
-                </v-col>
-              </v-row>
-              <v-row>
-                <v-col cols="auto">
-                  <font-awesome-icon icon="fa-solid fa-phone" />
-                </v-col>
-                <v-col> +111-111-1111-1111111 </v-col>
-              </v-row>
-              <v-row>
-                <v-col cols="auto">
                   <font-awesome-icon icon="fa-solid fa-envelope" />
                 </v-col>
-                <v-col> zzzzzzz@gmail.com </v-col>
+                <v-col>enquiries@tradegenie.ai</v-col>
               </v-row>
             </v-col>
             <v-divider
@@ -155,9 +148,9 @@
               style="border-color: black !important"
             ></v-divider>
             <v-col align="center">
-              <h1>FOLLOW US</h1>
+              <p>Follow Us</p>
               <v-img
-                style="margin-top: 5%"
+                style="margin-top: 1%"
                 v-on:click="page()"
                 height="50"
                 width="50"
@@ -172,7 +165,7 @@
           <v-col>
             <p class="text-center mt-4">
               Confidential and Proprietary. Copyright (c) tradegenie.ai. All
-              Rights Reserved. Contact email: alex.papa@tradegenie.ai
+              Rights Reserved.
             </p>
           </v-col>
         </v-row>
@@ -186,6 +179,7 @@ export default {
   name: "website_main",
 
   data: () => ({
+    itemToShow: -1,
     drawer: false,
     ProductOpen: false,
     items: [
@@ -250,6 +244,9 @@ export default {
   //   }
   // },
   methods: {
+    expand(e) {
+      console.log(e);
+    },
     moving(e) {
       this.goto(e);
     },
@@ -266,6 +263,7 @@ export default {
     },
     action1() {
       window.scrollTo({ top: 0, behavior: "smooth" });
+      this.itemToShow = -1;
     },
     goto(refName) {
       var element = this.$refs[refName];
