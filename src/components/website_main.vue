@@ -112,7 +112,7 @@
             <div class="text-center ml-3">
               <v-avatar tile color="blue" size="170">
                 <img
-                  @click="itemToShow = index"
+                  @click="opening(index)"
                   :src="require(`../assets/${teamItem.photo}`)"
                   alt="foto"
                   class="img-card"
@@ -248,6 +248,14 @@ export default {
   //   }
   // },
   methods: {
+    opening(e) {
+      console.log(this.itemToShow);
+      if (e === this.itemToShow) {
+        this.itemToShow = -1;
+      } else {
+        this.itemToShow = e;
+      }
+    },
     expand(e) {
       console.log(e);
     },
