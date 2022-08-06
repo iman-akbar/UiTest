@@ -101,9 +101,13 @@
       </v-row>
     </div>
     <div>
-      <div ref="team" class="teamref mt-5" style="margin-top: 200px">
+      <div
+        ref="team"
+        class="teamref mt-5"
+        style="margin-top: 200px; padding-bottom: 100px"
+      >
         <h1 class="teamPart text-center">Team</h1>
-        <v-row align="center" justify="center">
+        <v-row justify="center">
           <v-col v-for="(teamItem, index) in teamItem" :key="teamItem">
             <div class="text-center ml-3">
               <v-avatar tile color="blue" size="170">
