@@ -1,28 +1,42 @@
 <template>
-  <v-app>
-    <v-app-bar color="blue-grey darken-3" height="90" fixed>
+  <v-app class="bgColor">
+    <v-app-bar
+      v-if="isMobile"
+      style="
+        background-color: rgb(16 29 40);
+        color: ghostwhite;
+        font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;
+        font-size: 2vh;
+        font-weight: bold;
+        text-align: justify;
+
+        height: 10vh;
+      "
+      height="40"
+      fixed
+    >
       <v-row>
-        <v-col class="ml-10" cols="8">
+        <v-col class="ml-2 mt-5" cols="8">
           <v-img
             @click="action1"
-            height="90"
-            width="240"
+            height="40"
+            width="100"
             src="../assets/new_logo.png"
           ></v-img>
         </v-col>
-        <v-col v-if="!isMobile" class="mt-13">
+        <v-col v-if="!isMobile" class="mt-2">
           <a @click="goto('about')" style="color: white">About</a>
         </v-col>
-        <v-col v-if="!isMobile" class="mt-13">
+        <v-col v-if="!isMobile" class="mt-2">
           <a @click="goto('product')" style="color: white">Product</a>
         </v-col>
-        <v-col v-if="!isMobile" class="mt-13">
+        <v-col v-if="!isMobile" class="mt-2">
           <a @click="goto('team')" style="color: white">Team</a>
         </v-col>
-        <v-col v-if="!isMobile" class="mt-13">
+        <v-col v-if="!isMobile" class="mt-2">
           <a @click="goto('contact')" style="color: white">Contact Us</a>
         </v-col>
-        <v-col class="mt-7" v-if="isMobile" align="right">
+        <v-col class="mt-4" v-if="isMobile" align="right">
           <v-menu bottom offset-y>
             <template v-slot:activator="{ on, attrs }">
               <v-btn dark icon v-bind="attrs" v-on="on"
@@ -46,9 +60,98 @@
         </v-col>
       </v-row>
     </v-app-bar>
-    <div>
+    <v-app-bar
+      v-else-if="isDesktop"
+      style="
+        background-color: rgb(16 29 40);
+        color: ghostwhite;
+        font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;
+        font-size: 2vh;
+        font-weight: bold;
+        text-align: justify;
+        align-content: space-evenly !important;
+
+        height: 10vh;
+      "
+      height="90"
+      fixed
+    >
+      <v-row>
+        <v-col class="ml-10" cols="8">
+          <v-img
+            @click="action1"
+            height="90"
+            width="240"
+            src="../assets/new_logo.png"
+          ></v-img>
+        </v-col>
+        <v-col class="mt-13">
+          <a @click="goto('about')" style="color: white">About</a>
+        </v-col>
+        <v-col class="mt-13">
+          <a @click="goto('product')" style="color: white">Product</a>
+        </v-col>
+        <v-col class="mt-13">
+          <a @click="goto('team')" style="color: white">Team</a>
+        </v-col>
+        <v-col class="mt-13">
+          <a @click="goto('contact')" style="color: white">Contact Us</a>
+        </v-col>
+      </v-row>
+    </v-app-bar>
+    <v-app-bar
+      v-else-if="isTablet"
+      style="
+        background-color: rgb(16 29 40);
+        color: ghostwhite;
+        font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;
+        font-size: 2vh;
+        font-weight: bold;
+        text-align: justify;
+        align-content: space-evenly !important;
+
+        height: 10vh;
+      "
+      height="60"
+      fixed
+    >
+      <v-row>
+        <v-col class="ml-1 mt-0" cols="5">
+          <v-img
+            @click="action1"
+            height="60"
+            width="160"
+            src="../assets/new_logo.png"
+          ></v-img>
+        </v-col>
+        <v-col class="ml-8 mt-8">
+          <a @click="goto('about')" style="color: white">About</a>
+        </v-col>
+        <v-col class="mt-8">
+          <a @click="goto('product')" style="color: white">Product</a>
+        </v-col>
+        <v-col class="mt-8">
+          <a @click="goto('team')" style="color: white">Team</a>
+        </v-col>
+        <v-col class="mt-8">
+          <a @click="goto('contact')" style="color: white">Contact Us</a>
+        </v-col>
+      </v-row>
+    </v-app-bar>
+    <div v-if="isMobile">
       <v-img
-        height="750"
+        height="190"
+        src="../assets/digital-graph-with-businessman-hand-overlay-MODIFIED (1).png"
+      ></v-img>
+    </div>
+    <div v-else-if="isDesktop">
+      <v-img
+        src="../assets/digital-graph-with-businessman-hand-overlay-MODIFIED (1).png"
+      ></v-img>
+    </div>
+    <div v-else-if="isTablet">
+      <v-img
+        height="400"
         src="../assets/digital-graph-with-businessman-hand-overlay-MODIFIED (1).png"
       ></v-img>
     </div>
@@ -80,9 +183,26 @@
         our decisions, but there biases should not <br />
         cost you money
       </p>
-      <v-row class="ml-5 mr-5">
-        <v-col v-for="cardItem in cardItem" :key="cardItem">
-          <v-card>
+      <v-row dense class="ml-16 mr-5">
+        <v-col
+          cols="auto"
+          sm="10"
+          md="4"
+          lg="4"
+          v-for="cardItem in cardItem"
+          :key="cardItem"
+        >
+          <v-card
+            width="500"
+            height="400px"
+            outlined
+            style="'display: flex;
+    
+    
+     background: rgb(16 29 40);
+    
+    border: 2px solid white"
+          >
             <v-card-title class="justify-center">
               <p class="text-center" style="color: #5800ff">
                 {{ cardItem.title }}
@@ -106,7 +226,7 @@
         class="teamref mt-5"
         style="margin-top: 200px; padding-bottom: 100px"
       >
-        <h1 class="teamPart text-center">Team</h1>
+        <h1 class="teamPart text-center">Our Team</h1>
         <v-row justify="center">
           <v-col v-for="(teamItem, index) in teamItem" :key="teamItem">
             <div class="text-center ml-3">
@@ -119,14 +239,17 @@
                 />
               </v-avatar>
               <p style="color: #5800ff">{{ teamItem.name }}</p>
-              <p>{{ teamItem.role }}</p>
+              <p>
+                <strong>{{ teamItem.role }}</strong>
+              </p>
               <div class="mt-16">
                 <v-card
+                  height="200px"
                   v-show="itemToShow == index"
                   class="mx-auto"
-                  max-width="600"
+                  width="350"
                 >
-                  <p>
+                  <p style="color: black">
                     {{ teamItem.description }}
                   </p>
                 </v-card>
@@ -177,7 +300,6 @@
     </div>
   </v-app>
 </template>
-
 <script>
 export default {
   name: "website_main",
@@ -195,20 +317,18 @@ export default {
 
     teamItem: [
       {
-        photo:
-          "pngtree-modern-double-color-futuristic-neon-background-picture-image_1181573.jpg",
-        name: "alex",
-        role: "Managing director driving our strategic vision and commercial success",
+        photo: "alex_pic.png",
+        name: "Alex Papakyriacou",
+        role: "Founder & Managing Director",
         description:
-          "Alex has owked with major financial institutions across the UK, Ireland and Cyprus, incuding a Stock Exchange, a major Broker and various Asset Manager & Hedge funs. Alex draws upon these experiences and his knowledge of business, finance, and data science to turn a novel concept into the go-to behavioural analytics platform for retail investor trading online",
+          "Alex has worked with major financial institutions across the UK, Ireland and Cyprus, including a Stock Exchange, a major Broker and various Asset Manager & Hedge funs. Alex draws upon these experiences and his knowledge of business, finance, and data science to turn a novel concept into the go-to behavioural analytics platform for retail investor trading online",
       },
       {
-        photo:
-          "pngtree-modern-double-color-futuristic-neon-background-picture-image_1181573.jpg",
-        name: "alex",
-        role: "Managing director driving our strategic vision and commercial success",
+        photo: "alex_pic.png",
+        name: "XYZ",
+        role: "Chief Technology Officer",
         description:
-          "Alex has owked with major financial institutions across the UK, Ireland and Cyprus, incuding a Stock Exchange, a major Broker and various Asset Manager & Hedge funs. Alex draws upon these experiences and his knowledge of business, finance, and data science to turn a novel concept into the go-to behavioural analytics platform for retail investor trading online",
+          "XYZ excels at designing, developing and managing large scale end-to-end applications from the ground-up. With over 11 years of combined experience from across the finance, media and consulting industries, and a proven track record of leading AI/ML technology from innovative start-ups to established corporates, XYZ is set on building a product that traders love to use.",
       },
     ],
     cardItem: [
@@ -237,6 +357,8 @@ export default {
       },
     ],
     isMobile: false,
+    isTablet: false,
+    isDesktop: false,
   }),
   mounted() {
     this.onResize();
@@ -268,10 +390,13 @@ export default {
     },
 
     onResize() {
-      this.isMobile = window.innerWidth < 1400;
+      this.isMobile = window.innerWidth < 700; //text and card
+      this.isTablet = 700 > window.innerWidth < 1400;
+      this.isDesktop = window.innerWidth > 1400;
+      //4k resolution txt format
     },
     page() {
-      window.open("https://www.google.com/");
+      window.open("https://cy.linkedin.com/company/trade-genie");
     },
     action1() {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -291,7 +416,19 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
+h1 {
+  border-style: solid;
+}
+p {
+  color: ghostwhite;
+}
+h1 {
+  color: ghostwhite;
+}
+.bgColor {
+  background: rgb(16 29 40);
+}
 .contactPart {
   margin-top: 10%;
   margin-bottom: 5%;
