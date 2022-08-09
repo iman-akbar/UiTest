@@ -70,8 +70,7 @@
         font-weight: bold;
         text-align: justify;
         align-content: space-evenly !important;
-
-        height: 10vh;
+        height: 15vh;
       "
       height="90"
       fixed
@@ -79,14 +78,22 @@
       <v-row>
         <v-col class="ml-10" cols="8">
           <v-img
+            style="transform: scale(0.75)"
             @click="action1"
-            height="90"
-            width="240"
+            max-height="90"
+            max-width="240"
             src="../assets/new_logo.png"
           ></v-img>
         </v-col>
         <v-col class="mt-13">
-          <a @click="goto('about')" style="color: white">About</a>
+          <a
+            @click="goto('about')"
+            style="
+              color: ghostwhite;
+              font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;
+            "
+            >About</a
+          >
         </v-col>
         <v-col class="mt-13">
           <a @click="goto('product')" style="color: white">Product</a>
@@ -156,11 +163,11 @@
       ></v-img>
     </div>
     <div ref="about" class="aboutref mt-10">
-      <h1 class="aboutPart text-center">About</h1>
+      <h1 class="aboutPart text-center" style="color: black">About</h1>
       <p class="text-center" style="color: #5800ff">
         <strong>An early-stage Fintech Start-up base in Cyprus</strong>
       </p>
-      <p class="text-center">
+      <p class="text-center" style="color: black">
         Developing an AI platform that provides valueable Behavioural
         <br />Advice to every type of retail investor, regardless of their
         <br />
@@ -174,27 +181,28 @@
     <br />
     <br /><br />
     <div ref="product" class="productref mt-5">
-      <h1 class="productPart text-center">Product</h1>
+      <h1 class="productPart text-center" style="color: black">Product</h1>
       <p class="text-center" style="color: #5800ff">
         <strong>Behavioural Analytics as a Service</strong>
       </p>
-      <p class="text-center">
+      <p class="text-center" style="color: black">
         Everyone has Personal biases, subconscious behaviours <br />that affect
         our decisions, but there biases should not <br />
         cost you money
       </p>
-      <v-row dense class="ml-16 mr-5">
+      <v-row dense style="margin-left: 25%" class="mr-5 mb-6">
         <v-col
           cols="auto"
           sm="10"
-          md="4"
-          lg="4"
+          md="3"
+          lg="3"
           v-for="cardItem in cardItem"
           :key="cardItem"
         >
+          <!-- max-width="300"
+            height="250" -->
           <v-card
-            width="500"
-            height="400px"
+            height="100%"
             outlined
             style="'display: flex;
     
@@ -204,14 +212,14 @@
     border: 2px solid white"
           >
             <v-card-title class="justify-center">
-              <p class="text-center" style="color: #5800ff">
-                {{ cardItem.title }}
+              <p class="text-center" style="color: white">
+                <strong>{{ cardItem.title }}</strong>
               </p>
             </v-card-title>
             <v-card-text>
               <p class="text-center">
                 {{ cardItem.text }}
-                <span style="color: #5800ff"
+                <span
                   ><strong>{{ cardItem.text2 }}</strong></span
                 >
               </p>
@@ -223,12 +231,26 @@
     <div>
       <div
         ref="team"
-        class="teamref mt-5"
+        class="teamref mt-16"
         style="margin-top: 200px; padding-bottom: 100px"
       >
-        <h1 class="teamPart text-center">Our Team</h1>
+        <h1
+          class="teamPart text-center"
+          style="
+            font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;
+          "
+        >
+          Our Team
+        </h1>
         <v-row justify="center">
-          <v-col cols="3" v-for="(teamItem, index) in teamItem" :key="teamItem">
+          <v-col
+            cols="auto"
+            sm="10"
+            md="3"
+            lg="3"
+            v-for="(teamItem, index) in teamItem"
+            :key="teamItem"
+          >
             <div class="text-center ml-3">
               <v-avatar tile color="blue" size="170">
                 <img
@@ -238,12 +260,30 @@
                   class="img-card"
                 />
               </v-avatar>
-              <p style="color: #5800ff">{{ teamItem.name }}</p>
-              <p>
+              <p
+                style="
+                  color: white;
+                  font-family: monospace;
+                  font-size: larger;
+                  font-weight: bolder;
+                  margin-bottom: 16px;
+                "
+              >
+                {{ teamItem.name }}
+              </p>
+              <p
+                style="color: rgb(56 200 244)
+font-size: 2vh;
+font-weight: 300"
+              >
                 <strong>{{ teamItem.role }}</strong>
               </p>
-              <div class="mt-16">
-                <v-card v-show="itemToShow == index" class="mx-auto">
+              <div class="mt-8">
+                <v-card
+                  v-show="itemToShow == index"
+                  class="mx-auto"
+                  height="100%"
+                >
                   <p style="color: black">
                     {{ teamItem.description }}
                   </p>
@@ -253,7 +293,12 @@
           </v-col>
         </v-row>
       </div>
-      <div ref="contact" class="mt-16 mb-16">
+
+      <div
+        ref="contact"
+        class="contactref mt-16 mb-16"
+        style="margin-top: 200px; padding-bottom: 100px"
+      >
         <h1 class="contactPart text-center">Contact Us</h1>
         <v-card class="mx-auto mt-5" max-width="1000" color="#F7F7F7">
           <v-row>
@@ -270,12 +315,12 @@
               style="border-color: black !important"
             ></v-divider>
             <v-col align="center">
-              <p style="color: black">Follow Us</p>
+              <!-- <p style="color: black">Follow Us</p> -->
               <v-img
                 style="margin-top: 1%"
                 v-on:click="page()"
-                height="50"
-                width="50"
+                height="30"
+                width="30"
                 src="../assets/image (11).png"
               ></v-img>
             </v-col>
@@ -398,6 +443,7 @@ export default {
       this.itemToShow = -1;
     },
     goto(refName) {
+      console.log(refName);
       var element = this.$refs[refName];
       console.log(element);
       // var top = element.offsetTop;
@@ -412,10 +458,35 @@ export default {
 };
 </script>
 <style scoped>
+.contactref {
+  border-style: outset;
+  border-color: gainsboro;
+  border-width: revert;
+}
+.teamref {
+  border-style: outset;
+  border-color: gainsboro;
+  border-width: revert;
+}
+.productref {
+  border-style: outset;
+  border-color: gainsboro;
+  border-width: revert;
+  background: white;
+}
+.aboutref {
+  border-style: outset;
+  border-color: gainsboro;
+  border-width: revert;
+  background: white;
+}
 h1 {
-  border-style: solid;
+  font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;
+  border-bottom: solid;
 }
 p {
+  font-family: system-ui;
+  font-size: 2vh;
   color: ghostwhite;
 }
 h1 {
@@ -425,11 +496,10 @@ h1 {
   background: rgb(16 29 40);
 }
 .contactPart {
-  margin-top: 10%;
+  /* margin-top: 10%; */
   margin-bottom: 5%;
 }
 .teamPart {
-  margin-top: 10%;
   margin-bottom: 5%;
 }
 .productPart {
@@ -437,5 +507,8 @@ h1 {
 }
 .aboutPart {
   margin-bottom: 3%;
+}
+a {
+  color: hotpink;
 }
 </style>
