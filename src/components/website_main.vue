@@ -228,7 +228,7 @@
       >
         <h1 class="teamPart text-center">Our Team</h1>
         <v-row justify="center">
-          <v-col v-for="(teamItem, index) in teamItem" :key="teamItem">
+          <v-col cols="3" v-for="(teamItem, index) in teamItem" :key="teamItem">
             <div class="text-center ml-3">
               <v-avatar tile color="blue" size="170">
                 <img
@@ -243,12 +243,7 @@
                 <strong>{{ teamItem.role }}</strong>
               </p>
               <div class="mt-16">
-                <v-card
-                  height="200px"
-                  v-show="itemToShow == index"
-                  class="mx-auto"
-                  width="350"
-                >
+                <v-card v-show="itemToShow == index" class="mx-auto">
                   <p style="color: black">
                     {{ teamItem.description }}
                   </p>
@@ -275,13 +270,13 @@
               style="border-color: black !important"
             ></v-divider>
             <v-col align="center">
-              <p>Follow Us</p>
+              <p style="color: black">Follow Us</p>
               <v-img
                 style="margin-top: 1%"
                 v-on:click="page()"
                 height="50"
                 width="50"
-                src="../assets/LI-In-Bug4.png"
+                src="../assets/image (11).png"
               ></v-img>
             </v-col>
           </v-row>
