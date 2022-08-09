@@ -190,43 +190,48 @@
         our decisions, but there biases should not <br />
         cost you money
       </p>
-      <v-row dense style="margin-left: 25%" class="mr-5 mb-6">
-        <v-col
-          cols="auto"
-          sm="10"
-          md="3"
-          lg="3"
-          v-for="cardItem in cardItem"
-          :key="cardItem"
-        >
-          <!-- max-width="300"
+      <v-layout wrap align-center justify-center>
+        <v-flex xs6 offset xs-1 sm6 offset-sm1 md6 offset-md1>
+          <v-row dense>
+            <v-col
+              cols="auto"
+              sm="10"
+              md="4"
+              lg="4"
+              v-for="cardItem in cardItem"
+              :key="cardItem"
+            >
+              <!-- max-width="300"
             height="250" -->
-          <v-card
-            height="100%"
-            outlined
-            style="'display: flex;
+
+              <v-card
+                height="100%"
+                class="mx-auto"
+                outlined
+                style="'display: flex;
     
     
      background: rgb(16 29 40);
     
     border: 2px solid white"
-          >
-            <v-card-title class="justify-center">
-              <p class="text-center" style="color: white">
-                <strong>{{ cardItem.title }}</strong>
-              </p>
-            </v-card-title>
-            <v-card-text>
-              <p class="text-center">
-                {{ cardItem.text }}
-                <span
-                  ><strong>{{ cardItem.text2 }}</strong></span
-                >
-              </p>
-            </v-card-text>
-          </v-card>
-        </v-col>
-      </v-row>
+              >
+                <v-card-title class="justify-center">
+                  <p class="text-center" style="color: white; display: inline">
+                    <strong>{{ cardItem.title }}</strong>
+                  </p>
+                </v-card-title>
+
+                <p class="text-center">
+                  {{ cardItem.text }}
+                  <span
+                    ><strong>{{ cardItem.text2 }}</strong></span
+                  >
+                </p>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-flex>
+      </v-layout>
     </div>
     <div>
       <div
@@ -246,14 +251,14 @@
           <v-col
             cols="auto"
             sm="10"
-            md="3"
-            lg="3"
+            md="5"
+            lg="5"
             v-for="(teamItem, index) in teamItem"
             :key="teamItem"
           >
             <div class="text-center ml-3">
-              <v-avatar tile color="blue" size="170">
-                <img
+              <v-avatar tile color="" size="170">
+                <v-img
                   @click="opening(index)"
                   :src="require(`../assets/${teamItem.photo}`)"
                   alt="foto"
@@ -282,6 +287,7 @@ font-weight: 300"
                 <v-card
                   v-show="itemToShow == index"
                   class="mx-auto"
+                  max-width="200"
                   height="100%"
                 >
                   <p style="color: black">
@@ -300,7 +306,7 @@ font-weight: 300"
         style="margin-top: 200px; padding-bottom: 100px"
       >
         <h1 class="contactPart text-center">Contact Us</h1>
-        <v-card class="mx-auto mt-5" max-width="1000" color="#F7F7F7">
+        <v-card class="mx-auto mt-5" max-width="500" color="#F7F7F7">
           <v-row>
             <v-col class="ml-5">
               <v-row>
@@ -467,6 +473,7 @@ export default {
   border-style: outset;
   border-color: gainsboro;
   border-width: revert;
+  background: rgb(16 29 40);
 }
 .productref {
   border-style: outset;
@@ -493,7 +500,8 @@ h1 {
   color: ghostwhite;
 }
 .bgColor {
-  background: rgb(16 29 40);
+  /* background: rgb(16 29 40); */
+  background: white;
 }
 .contactPart {
   /* margin-top: 10%; */
@@ -510,5 +518,15 @@ h1 {
 }
 a {
   color: hotpink;
+}
+.parallax {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.card__text {
+  font-size: 1.2em;
+  padding-top: 0;
+  padding-bottom: 7%;
 }
 </style>
