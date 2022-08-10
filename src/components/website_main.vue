@@ -78,7 +78,7 @@
       <v-row>
         <v-col class="ml-10" cols="8">
           <v-img
-            style="transform: scale(0.75)"
+            style="margin: auto; position: absolute; top: 0"
             @click="action1"
             max-height="90"
             max-width="240"
@@ -102,7 +102,7 @@
           <a @click="goto('team')" style="color: white">Team</a>
         </v-col>
         <v-col class="mt-13">
-          <a @click="goto('contact')" style="color: white">Contact Us</a>
+          <p @click="goto('contact')">contact us</p>
         </v-col>
       </v-row>
     </v-app-bar>
