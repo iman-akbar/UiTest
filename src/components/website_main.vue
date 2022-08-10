@@ -305,7 +305,7 @@ font-weight: 300"
         class="contactref mt-16 mb-16"
         style="margin-top: 200px; padding-bottom: 100px"
       >
-        <h1 class="contactPart text-center">Contact Us</h1>
+        <h1 style="color: black" class="contactPart text-center">Contact Us</h1>
         <v-card class="mx-auto mt-5" max-width="500" color="#F7F7F7">
           <v-row>
             <v-col class="ml-5">
@@ -489,7 +489,7 @@ export default {
 }
 h1 {
   font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;
-  border-bottom: solid;
+  border-bottom: outset;
 }
 p {
   font-family: system-ui;
