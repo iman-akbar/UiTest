@@ -61,6 +61,46 @@
       </v-row>
     </v-app-bar>
     <v-app-bar
+        v-else-if="$vuetify.breakpoint.xlOnly"
+        style="
+        background-color: rgb(16 29 40);
+        color: ghostwhite;
+        font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;
+        font-size: 2vh;
+        font-weight: bold;
+        text-align: justify;
+        align-content: space-evenly !important;
+        height: 12vh;
+      "
+        height="90"
+        fixed
+    >
+      <v-row style="margin-top: 70px">
+        <v-col class="ml-10"  cols="8">
+          <img src="../assets/new_logo.png" width="240" height="90">
+        </v-col>
+        <v-col class="mt-13">
+          <a
+              @click="goto('about')"
+              style="
+              color: ghostwhite;
+              font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;
+            "
+          >About</a
+          >
+        </v-col>
+        <v-col class="mt-13">
+          <a @click="goto('product')" style="color: white">Product</a>
+        </v-col>
+        <v-col class="mt-13">
+          <a @click="goto('team')" style="color: white">Team</a>
+        </v-col>
+        <v-col class="mt-13">
+          <p @click="goto('contact')">contact us</p>
+        </v-col>
+      </v-row>
+    </v-app-bar>
+    <v-app-bar
       v-else-if="isDesktop"
       style="
         background-color: rgb(16 29 40);
@@ -76,14 +116,15 @@
       fixed
     >
       <v-row>
-        <v-col class="ml-10" cols="8">
-          <v-img
-            style="margin: auto; position: absolute; top: 0"
-            @click="action1"
-            max-height="90"
-            max-width="240"
-            src="../assets/new_logo.png"
-          ></v-img>
+        <v-col class="ml-10 mt-3" cols="8">
+          <img src="../assets/new_logo.png" width="240" height="90">
+<!--          <v-img-->
+<!--            style="margin: auto; position: absolute; top: 0"-->
+<!--            @click="action1"-->
+<!--            max-height="90"-->
+<!--            max-width="240"-->
+<!--            src="../assets/new_logo.png"-->
+<!--          ></v-img>-->
         </v-col>
         <v-col class="mt-13">
           <a
@@ -117,12 +158,12 @@
         text-align: justify;
         align-content: space-evenly !important;
 
-        height: 10vh;
+        height: 15vh;
       "
-      height="60"
+
       fixed
     >
-      <v-row>
+      <v-row style="margin-top: 2%">
         <v-col class="ml-1 mt-0" cols="5">
           <v-img
             @click="action1"
@@ -156,6 +197,12 @@
     <div v-else-if="isDesktop">
       <v-img
         src="../assets/digital-graph-with-businessman-hand-overlay-MODIFIED (1).png"
+      ></v-img>
+    </div>
+    <div v-else-if="$vuetify.breakpoint.mdOnly" style="margin-top: 85px">
+      <v-img
+          height="400"
+          src="../assets/digital-graph-with-businessman-hand-overlay-MODIFIED (1).png"
       ></v-img>
     </div>
     <div v-else-if="isTablet">
@@ -197,7 +244,8 @@
           <v-row dense>
             <v-col
               cols="auto"
-              sm="10"
+              xs="1"
+              sm="4"
               md="4"
               lg="4"
               v-for="cardItem in cardItem"
@@ -535,5 +583,9 @@ a {
   font-size: 1.2em;
   padding-top: 0;
   padding-bottom: 7%;
+}
+img {
+  width: 20%;
+  height: auto;
 }
 </style>
