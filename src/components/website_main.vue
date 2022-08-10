@@ -145,9 +145,11 @@
         </v-col>
       </v-row>
     </v-app-bar>
-    <div v-if="isMobile">
-      <v-img
-        height="190"
+
+    <div v-if="isMobile" class="mt-14">
+      <v-img style="width: 100%;
+  height: auto;"
+          width="460" height="345"
         src="../assets/digital-graph-with-businessman-hand-overlay-MODIFIED (1).png"
       ></v-img>
     </div>
