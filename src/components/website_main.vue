@@ -70,16 +70,16 @@
         font-weight: bold;
         text-align: justify;
         align-content: space-evenly !important;
-        height: 12vh;
+        height: 10vh;
       "
         height="90"
         fixed
     >
       <v-row style="margin-top: 70px">
-        <v-col class="ml-10"  cols="8">
+        <v-col class="ml-10"  cols="8" style="margin-top: 4px">
           <img src="../assets/new_logo.png" width="240" height="90">
         </v-col>
-        <v-col class="mt-13">
+        <v-col style="margin-top: 80px">
           <a
               @click="goto('about')"
               style="
@@ -89,17 +89,18 @@
           >About</a
           >
         </v-col>
-        <v-col class="mt-13">
+        <v-col style="margin-top: 80px">
           <a @click="goto('product')" style="color: white">Product</a>
         </v-col>
-        <v-col class="mt-13">
+        <v-col style="margin-top: 80px">
           <a @click="goto('team')" style="color: white">Team</a>
         </v-col>
-        <v-col class="mt-13">
+        <v-col style="margin-top: 80px">
           <p @click="goto('contact')">contact us</p>
         </v-col>
       </v-row>
     </v-app-bar>
+
     <v-app-bar
       v-else-if="isDesktop"
       style="
@@ -110,13 +111,13 @@
         font-weight: bold;
         text-align: justify;
         align-content: space-evenly !important;
-        height: 15vh;
+        height: 10vh;
       "
       height="90"
       fixed
     >
-      <v-row>
-        <v-col class="ml-10 mt-3" cols="8">
+      <v-row >
+        <v-col class="ml-10 mt-6" cols="8">
           <img src="../assets/new_logo.png" width="240" height="90">
 <!--          <v-img-->
 <!--            style="margin: auto; position: absolute; top: 0"-->
@@ -126,7 +127,7 @@
 <!--            src="../assets/new_logo.png"-->
 <!--          ></v-img>-->
         </v-col>
-        <v-col class="mt-13">
+        <v-col class="mt-16">
           <a
             @click="goto('about')"
             style="
@@ -135,18 +136,19 @@
             "
             >About</a
           >
-        </v-col>
-        <v-col class="mt-13">
+        </v-col >
+        <v-col class="mt-16">
           <a @click="goto('product')" style="color: white">Product</a>
         </v-col>
-        <v-col class="mt-13">
+        <v-col class="mt-16">
           <a @click="goto('team')" style="color: white">Team</a>
         </v-col>
-        <v-col class="mt-13">
+        <v-col class="mt-16">
           <p @click="goto('contact')">contact us</p>
         </v-col>
       </v-row>
     </v-app-bar>
+
     <v-app-bar
       v-else-if="isTablet"
       style="
@@ -158,7 +160,7 @@
         text-align: justify;
         align-content: space-evenly !important;
 
-        height: 15vh;
+        height: 13vh;
       "
 
       fixed
@@ -172,16 +174,16 @@
             src="../assets/new_logo.png"
           ></v-img>
         </v-col>
-        <v-col class="ml-8 mt-8">
+        <v-col class="ml-8 mt-9">
           <a @click="goto('about')" style="color: white">About</a>
         </v-col>
-        <v-col class="mt-8">
+        <v-col class="mt-9">
           <a @click="goto('product')" style="color: white">Product</a>
         </v-col>
-        <v-col class="mt-8">
+        <v-col class="mt-9">
           <a @click="goto('team')" style="color: white">Team</a>
         </v-col>
-        <v-col class="mt-8">
+        <v-col class="mt-9">
           <a @click="goto('contact')" style="color: white">Contact Us</a>
         </v-col>
       </v-row>
@@ -405,6 +407,12 @@ export default {
   name: "website_main",
 
   data: () => ({
+    header:[
+      {name: 'Product', going:'product'},
+      {name: 'Team', going:'team'},
+      {name: 'Team', going:'contact'},
+      {name: 'contact us', going:'contact'},
+    ],
     itemToShow: -1,
     drawer: false,
     ProductOpen: false,
@@ -459,10 +467,16 @@ export default {
     isMobile: false,
     isTablet: false,
     isDesktop: false,
+    isNormalDesktop : false,
   }),
   mounted() {
+
     this.onResize();
     window.addEventListener("resize", this.onResize, { passive: true });
+    console.log('tablet',this.isTablet)
+    console.log('normal',this.isNormalDesktop)
+    console.log('mobile',this.isMobile)
+    console.log('mobile',this.isMobile)
   },
   // beforeDestroy() {
   //   if (typeof window !== "undefined") {
@@ -491,7 +505,8 @@ export default {
 
     onResize() {
       this.isMobile = window.innerWidth < 700; //text and card
-      this.isTablet = 700 > window.innerWidth < 1400;
+      this.isTablet = 700 > window.innerWidth < 1024;
+      this.isNormalDesktop = 1024 < window.innerWidth < 1400
       this.isDesktop = window.innerWidth > 1400;
       //4k resolution txt format
     },
