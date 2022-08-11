@@ -245,10 +245,9 @@
         <v-flex xs6 offset xs-1 sm6 offset-sm1 md6 offset-md1>
           <v-row dense>
             <v-col
-              cols="auto"
-              xs="1"
-              sm="4"
-              md="4"
+              cols="12"
+              sm="6"
+              md="5"
               lg="4"
               v-for="cardItem in cardItem"
               :key="cardItem"
@@ -258,7 +257,7 @@
 
               <v-card
                 height="100%"
-                class="mx-auto"
+                class="cardItem mx-auto"
                 outlined
                 style="'display: flex;
     
@@ -267,12 +266,16 @@
     
     border: 2px solid white"
               >
-                <v-card-title class="justify-center">
-                  <p class="text-center" style="color: white; display: inline">
+                <v-card-title v-if="$vuetify.breakpoint.xsOnly" class="justify-center">
+                  <p class="text-center" style="color: white; display: inline; font-size: 10px">
                     <strong>{{ cardItem.title }}</strong>
                   </p>
                 </v-card-title>
-
+                <v-card-title v-else class="justify-center">
+                  <p class="text-center" style="color: white; display: inline">
+                                        <strong>{{ cardItem.title }}</strong>
+                  </p>
+                </v-card-title>
                 <p class="text-center">
                   {{ cardItem.text }}
                   <span
@@ -302,7 +305,7 @@
         <v-row justify="center">
           <v-col
             cols="auto"
-            sm="10"
+            sm="6"
             md="5"
             lg="5"
             v-for="(teamItem, index) in teamItem"
@@ -467,14 +470,13 @@ export default {
     isMobile: false,
     isTablet: false,
     isDesktop: false,
-    isNormalDesktop : false,
+
   }),
   mounted() {
 
     this.onResize();
     window.addEventListener("resize", this.onResize, { passive: true });
     console.log('tablet',this.isTablet)
-    console.log('normal',this.isNormalDesktop)
     console.log('mobile',this.isMobile)
     console.log('mobile',this.isMobile)
   },
@@ -519,15 +521,28 @@ export default {
     },
     goto(refName) {
       console.log(refName);
-      var element = this.$refs[refName];
-      console.log(element);
-      // var top = element.offsetTop;
-      console.log(top);
-      // window.scrollTo(0, top - 100);
-      window.scrollTo({
-        top: element.offsetTop - 100,
-        behavior: "smooth",
-      });
+      console.log(this.$vuetify.breakpoint.width)
+      if(this.$vuetify.breakpoint.width > 2000){
+        let element = this.$refs[refName];
+        console.log(element);
+        // var top = element.offsetTop;
+        console.log(top);
+        // window.scrollTo(0, top - 100);
+        window.scrollTo({
+          top: element.offsetTop - 200,
+          behavior: "smooth",
+        });
+      }else {
+        let element = this.$refs[refName];
+        console.log(element);
+        // var top = element.offsetTop;
+        console.log(top);
+        // window.scrollTo(0, top - 100);
+        window.scrollTo({
+          top: element.offsetTop - 100,
+          behavior: "smooth",
+        });
+      }
     },
   },
 };
@@ -602,5 +617,9 @@ a {
 img {
   width: 20%;
   height: auto;
+}
+.cardItem{
+  border-radius: 20px;
+  box-shadow: -1px -3px 0px 5px rgba(21,41,148,0.56) !important;
 }
 </style>
