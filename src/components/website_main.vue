@@ -39,9 +39,9 @@
         <v-col class="mt-4" v-if="isMobile" align="right">
           <v-menu bottom offset-y>
             <template v-slot:activator="{ on, attrs }">
-              <v-btn dark icon v-bind="attrs" v-on="on"
-                ><v-app-bar-nav-icon></v-app-bar-nav-icon
-              ></v-btn>
+              <v-btn dark icon v-bind="attrs" v-on="on">
+                <v-app-bar-nav-icon></v-app-bar-nav-icon>
+              </v-btn>
             </template>
 
             <v-list>
@@ -51,9 +51,9 @@
                 router
                 @click="moving(i.path)"
               >
-                <v-list-item-title class="down">{{
-                  i.title
-                }}</v-list-item-title>
+                <v-list-item-title class="down"
+                  >{{ i.title }}
+                </v-list-item-title>
               </v-list-item>
             </v-list>
           </v-menu>
@@ -61,8 +61,8 @@
       </v-row>
     </v-app-bar>
     <v-app-bar
-        v-else-if="$vuetify.breakpoint.xlOnly"
-        style="
+      v-else-if="$vuetify.breakpoint.xlOnly"
+      style="
         background-color: rgb(16 29 40);
         color: ghostwhite;
         font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;
@@ -70,33 +70,21 @@
         font-weight: bold;
         text-align: justify;
         align-content: space-evenly !important;
-        height: 10vh;
+        height: 13vh;
       "
-        height="90"
-        fixed
+      height="90"
+      fixed
     >
       <v-row style="margin-top: 70px">
-        <v-col class="ml-10"  cols="8" style="margin-top: 4px">
-          <img src="../assets/new_logo.png" width="240" height="90">
+        <v-col class="ml-10" cols="8" style="margin-top: 1px">
+          <img src="../assets/new_logo.png" width="240" height="90" />
         </v-col>
-        <v-col style="margin-top: 80px">
-          <a
-              @click="goto('about')"
-              style="
-              color: ghostwhite;
-              font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;
-            "
-          >About</a
-          >
-        </v-col>
-        <v-col style="margin-top: 80px">
-          <a @click="goto('product')" style="color: white">Product</a>
-        </v-col>
-        <v-col style="margin-top: 80px">
-          <a @click="goto('team')" style="color: white">Team</a>
-        </v-col>
-        <v-col style="margin-top: 80px">
-          <p @click="goto('contact')">contact us</p>
+        <v-col  v-for="i in items"
+                :key="i"
+                style="margin-top: 80px">
+          <a  @click="goto(i.path)" style="color: ghostwhite;font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;">{{
+              i.title
+            }}</a>
         </v-col>
       </v-row>
     </v-app-bar>
@@ -111,40 +99,21 @@
         font-weight: bold;
         text-align: justify;
         align-content: space-evenly !important;
-        height: 10vh;
+        height: 13vh;
       "
       height="90"
       fixed
     >
       <v-row >
-        <v-col class="ml-10 mt-6" cols="8">
-          <img src="../assets/new_logo.png" width="240" height="90">
-<!--          <v-img-->
-<!--            style="margin: auto; position: absolute; top: 0"-->
-<!--            @click="action1"-->
-<!--            max-height="90"-->
-<!--            max-width="240"-->
-<!--            src="../assets/new_logo.png"-->
-<!--          ></v-img>-->
+        <v-col class="ml-9 mt-2" cols="8">
+          <img src="../assets/new_logo.png" width="240" height="90" />
         </v-col>
-        <v-col class="mt-16">
-          <a
-            @click="goto('about')"
-            style="
-              color: ghostwhite;
-              font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;
-            "
-            >About</a
-          >
-        </v-col >
-        <v-col class="mt-16">
-          <a @click="goto('product')" style="color: white">Product</a>
-        </v-col>
-        <v-col class="mt-16">
-          <a @click="goto('team')" style="color: white">Team</a>
-        </v-col>
-        <v-col class="mt-16">
-          <p @click="goto('contact')">contact us</p>
+        <v-col  v-for="i in items"
+                :key="i"
+                class="mt-13">
+          <a  @click="goto(i.path)" style="color: ghostwhite;font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;">{{
+              i.title
+            }}</a>
         </v-col>
       </v-row>
     </v-app-bar>
@@ -160,13 +129,12 @@
         text-align: justify;
         align-content: space-evenly !important;
 
-        height: 13vh;
+        height: 12vh;
       "
-
       fixed
     >
-      <v-row style="margin-top: 2%">
-        <v-col class="ml-1 mt-0" cols="5">
+      <v-row style="margin-top: 1%">
+        <v-col class="ml-1 mt-0" cols="6">
           <v-img
             @click="action1"
             height="60"
@@ -174,25 +142,21 @@
             src="../assets/new_logo.png"
           ></v-img>
         </v-col>
-        <v-col class="ml-8 mt-9">
-          <a @click="goto('about')" style="color: white">About</a>
-        </v-col>
-        <v-col class="mt-9">
-          <a @click="goto('product')" style="color: white">Product</a>
-        </v-col>
-        <v-col class="mt-9">
-          <a @click="goto('team')" style="color: white">Team</a>
-        </v-col>
-        <v-col class="mt-9">
-          <a @click="goto('contact')" style="color: white">Contact Us</a>
+        <v-col   v-for="i in items"
+                :key="i"
+                class="mt-9">
+          <a  @click="goto(i.path)" style="color: ghostwhite;font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;">{{
+              i.title
+            }}</a>
         </v-col>
       </v-row>
     </v-app-bar>
 
     <div v-if="isMobile" class="mt-14">
-      <v-img style="width: 100%;
-  height: auto;"
-          width="460" height="345"
+      <v-img
+        style="width: 100%; height: auto"
+        width="460"
+        height="345"
         src="../assets/digital-graph-with-businessman-hand-overlay-MODIFIED (1).png"
       ></v-img>
     </div>
@@ -203,8 +167,8 @@
     </div>
     <div v-else-if="$vuetify.breakpoint.mdOnly" style="margin-top: 85px">
       <v-img
-          height="400"
-          src="../assets/digital-graph-with-businessman-hand-overlay-MODIFIED (1).png"
+        height="400"
+        src="../assets/digital-graph-with-businessman-hand-overlay-MODIFIED (1).png"
       ></v-img>
     </div>
     <div v-else-if="isTablet">
@@ -244,7 +208,7 @@
       <v-layout wrap align-center justify-center>
         <v-flex xs6 offset xs-1 sm6 offset-sm1 md6 offset-md1>
           <v-row dense>
-            <v-col
+            <v-col class="mb-3"
               cols="12"
               sm="6"
               md="5"
@@ -259,21 +223,22 @@
                 height="100%"
                 class="cardItem mx-auto"
                 outlined
-                style="'display: flex;
-    
-    
-     background: rgb(16 29 40);
-    
-    border: 2px solid white"
+                style="'display: flex;background: rgb(16 29 40);border: 2px solid white"
               >
-                <v-card-title v-if="$vuetify.breakpoint.xsOnly" class="justify-center">
-                  <p class="text-center" style="color: white; display: inline; font-size: 10px">
+                <v-card-title
+                  v-if="$vuetify.breakpoint.xsOnly"
+                  class="justify-center"
+                >
+                  <p
+                    class="text-center"
+                    style="color: white; display: inline; font-size: 10px"
+                  >
                     <strong>{{ cardItem.title }}</strong>
                   </p>
                 </v-card-title>
                 <v-card-title v-else class="justify-center">
                   <p class="text-center" style="color: white; display: inline">
-                                        <strong>{{ cardItem.title }}</strong>
+                    <strong>{{ cardItem.title }}</strong>
                   </p>
                 </v-card-title>
                 <p class="text-center">
@@ -332,9 +297,7 @@
                 {{ teamItem.name }}
               </p>
               <p
-                style="color: rgb(56 200 244)
-font-size: 2vh;
-font-weight: 300"
+                style="color: rgb(56 200 244) font-size: 2vh; font-weight: 300"
               >
                 <strong>{{ teamItem.role }}</strong>
               </p>
@@ -410,11 +373,11 @@ export default {
   name: "website_main",
 
   data: () => ({
-    header:[
-      {name: 'Product', going:'product'},
-      {name: 'Team', going:'team'},
-      {name: 'Team', going:'contact'},
-      {name: 'contact us', going:'contact'},
+    header: [
+      { name: "Product", going: "product" },
+      { name: "Team", going: "team" },
+      { name: "Team", going: "contact" },
+      { name: "contact us", going: "contact" },
     ],
     itemToShow: -1,
     drawer: false,
@@ -470,15 +433,13 @@ export default {
     isMobile: false,
     isTablet: false,
     isDesktop: false,
-
   }),
   mounted() {
-
     this.onResize();
     window.addEventListener("resize", this.onResize, { passive: true });
-    console.log('tablet',this.isTablet)
-    console.log('mobile',this.isMobile)
-    console.log('mobile',this.isMobile)
+    console.log("tablet", this.isTablet);
+    console.log("mobile", this.isMobile);
+    console.log("mobile", this.isMobile);
   },
   // beforeDestroy() {
   //   if (typeof window !== "undefined") {
@@ -508,7 +469,7 @@ export default {
     onResize() {
       this.isMobile = window.innerWidth < 700; //text and card
       this.isTablet = 700 > window.innerWidth < 1024;
-      this.isNormalDesktop = 1024 < window.innerWidth < 1400
+      this.isNormalDesktop = 1024 < window.innerWidth < 1400;
       this.isDesktop = window.innerWidth > 1400;
       //4k resolution txt format
     },
@@ -521,8 +482,8 @@ export default {
     },
     goto(refName) {
       console.log(refName);
-      console.log(this.$vuetify.breakpoint.width)
-      if(this.$vuetify.breakpoint.width > 2000){
+      console.log(this.$vuetify.breakpoint.width);
+      if (this.$vuetify.breakpoint.width > 2000) {
         let element = this.$refs[refName];
         console.log(element);
         // var top = element.offsetTop;
@@ -532,7 +493,7 @@ export default {
           top: element.offsetTop - 200,
           behavior: "smooth",
         });
-      }else {
+      } else {
         let element = this.$refs[refName];
         console.log(element);
         // var top = element.offsetTop;
@@ -554,72 +515,88 @@ export default {
   border-color: gainsboro;
   border-width: revert;
 }
+
 .teamref {
   border-style: outset;
   border-color: gainsboro;
   border-width: revert;
   background: rgb(16 29 40);
 }
+
 .productref {
   border-style: outset;
   border-color: gainsboro;
   border-width: revert;
   background: white;
 }
+
 .aboutref {
   border-style: outset;
   border-color: gainsboro;
   border-width: revert;
   background: white;
 }
+
 h1 {
   font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;
   border-bottom: outset;
 }
+
 p {
   font-family: system-ui;
   font-size: 2vh;
   color: ghostwhite;
 }
+
 h1 {
   color: ghostwhite;
 }
+
 .bgColor {
   /* background: rgb(16 29 40); */
   background: white;
 }
+
 .contactPart {
   /* margin-top: 10%; */
   margin-bottom: 5%;
 }
+
 .teamPart {
   margin-bottom: 5%;
 }
+
 .productPart {
   margin-bottom: 5%;
 }
+
 .aboutPart {
   margin-bottom: 3%;
 }
+
 a {
   color: hotpink;
 }
+
 .parallax {
   min-height: 100vh;
   display: flex;
   align-items: center;
 }
+
 .card__text {
   font-size: 1.2em;
   padding-top: 0;
   padding-bottom: 7%;
 }
+
 img {
   width: 20%;
   height: auto;
 }
-.cardItem{
+
+.cardItem {
   border-radius: 20px;
-  box-shadow: -1px -3px 0px 5px rgba(21,41,148,0.56) !important;
+  box-shadow: -1px -3px 0px 5px rgba(21, 41, 148, 0.56) !important;
 }
 </style>
