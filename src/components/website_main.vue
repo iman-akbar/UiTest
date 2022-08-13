@@ -1,8 +1,8 @@
 <template>
   <v-app class="bgColor">
     <v-app-bar
-      v-if="isMobile"
-      style="
+        v-if="isMobile"
+        style="
         background-color: rgb(16 29 40);
         color: ghostwhite;
         font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;
@@ -12,16 +12,16 @@
 
         height: 10vh;
       "
-      height="40"
-      fixed
+        height="40"
+        fixed
     >
       <v-row>
         <v-col class="ml-2 mt-5" cols="8">
           <v-img
-            @click="action1"
-            height="40"
-            width="100"
-            src="../assets/new_logo.png"
+              @click="action1"
+              height="40"
+              width="100"
+              src="../assets/new_logo.png"
           ></v-img>
         </v-col>
         <v-col v-if="!isMobile" class="mt-2">
@@ -46,13 +46,13 @@
 
             <v-list>
               <v-list-item
-                v-for="i in items"
-                :key="i"
-                router
-                @click="moving(i.path)"
+                  v-for="i in items"
+                  :key="i"
+                  router
+                  @click="moving(i.path)"
               >
                 <v-list-item-title class="down"
-                  >{{ i.title }}
+                >{{ i.title }}
                 </v-list-item-title>
               </v-list-item>
             </v-list>
@@ -61,8 +61,8 @@
       </v-row>
     </v-app-bar>
     <v-app-bar
-      v-else-if="$vuetify.breakpoint.xlOnly"
-      style="
+        v-else-if="$vuetify.breakpoint.xlOnly"
+        style="
         background-color: rgb(16 29 40);
         color: ghostwhite;
         font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;
@@ -72,8 +72,8 @@
         align-content: space-evenly !important;
         height: 13vh;
       "
-      height="90"
-      fixed
+        height="90"
+        fixed
     >
       <v-row style="margin-top: 70px">
         <v-col class="ml-10" cols="8" style="margin-top: 1px">
@@ -90,8 +90,8 @@
     </v-app-bar>
 
     <v-app-bar
-      v-else-if="isDesktop"
-      style="
+        v-else-if="isDesktop"
+        style="
         background-color: rgb(16 29 40);
         color: ghostwhite;
         font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;
@@ -101,8 +101,8 @@
         align-content: space-evenly !important;
         height: 13vh;
       "
-      height="90"
-      fixed
+        height="90"
+        fixed
     >
       <v-row >
         <v-col class="ml-9 mt-2" cols="8">
@@ -119,8 +119,8 @@
     </v-app-bar>
 
     <v-app-bar
-      v-else-if="isTablet"
-      style="
+        v-else-if="isTablet"
+        style="
         background-color: rgb(16 29 40);
         color: ghostwhite;
         font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;
@@ -131,20 +131,37 @@
 
         height: 12vh;
       "
-      fixed
+        fixed
     >
-      <v-row style="margin-top: 1%">
-        <v-col class="ml-1 mt-0" cols="6">
+      <v-row v-if="windowWidth = 820">
+        <v-col class="ml-1 mt-3" cols="6">
           <v-img
-            @click="action1"
-            height="60"
-            width="160"
-            src="../assets/new_logo.png"
+              @click="action1"
+              height="60"
+              width="160"
+              src="../assets/new_logo.png"
           ></v-img>
         </v-col>
         <v-col   v-for="i in items"
-                :key="i"
-                class="mt-9">
+                 :key="i"
+                 class="mt-9">
+          <a  @click="goto(i.path)" style="color: ghostwhite;font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;font-size: 14px">{{
+              i.title
+            }}</a>
+        </v-col>
+      </v-row>
+      <v-row v-else style="margin-top: 1%">
+        <v-col class="ml-1 mt-0" cols="6">
+          <v-img
+              @click="action1"
+              height="60"
+              width="160"
+              src="../assets/new_logo.png"
+          ></v-img>
+        </v-col>
+        <v-col   v-for="i in items"
+                 :key="i"
+                 class="mt-9">
           <a  @click="goto(i.path)" style="color: ghostwhite;font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;">{{
               i.title
             }}</a>
@@ -154,42 +171,43 @@
 
     <div v-if="isMobile" class="mt-14">
       <v-img
-        style="width: 100%; height: auto"
-        width="460"
-        height="345"
-        src="../assets/digital-graph-with-businessman-hand-overlay-MODIFIED (1).png"
+          style="width: 100%; height: auto"
+          width="460"
+          height="345"
+          src="../assets/digital-graph-with-businessman-hand-overlay-MODIFIED (1).png"
       ></v-img>
     </div>
     <div v-else-if="isDesktop">
       <v-img
-        src="../assets/digital-graph-with-businessman-hand-overlay-MODIFIED (1).png"
+          src="../assets/digital-graph-with-businessman-hand-overlay-MODIFIED (1).png"
       ></v-img>
     </div>
     <div v-else-if="$vuetify.breakpoint.mdOnly" style="margin-top: 85px">
       <v-img
-        height="400"
-        src="../assets/digital-graph-with-businessman-hand-overlay-MODIFIED (1).png"
+          height="400"
+          src="../assets/digital-graph-with-businessman-hand-overlay-MODIFIED (1).png"
       ></v-img>
     </div>
     <div v-else-if="isTablet">
       <v-img
-        height="400"
-        src="../assets/digital-graph-with-businessman-hand-overlay-MODIFIED (1).png"
+          class="mt-16"
+          height="400"
+          src="../assets/digital-graph-with-businessman-hand-overlay-MODIFIED (1).png"
       ></v-img>
     </div>
     <div ref="about" class="aboutref mt-10">
       <h1 class="aboutPart text-center" style="color: black">About</h1>
-      <p class="text-center" style="color: #5800ff">
+      <p class="text-center" style="color: #5800ff; font-size: 1.5vh;">
         <strong>An early-stage Fintech Start-up base in Cyprus</strong>
       </p>
-      <p class="text-center" style="color: black">
-        Developing an AI platform that provides valueable Behavioural
+      <p class="text-center" style="color: black; font-size: 1.5vh;">
+        Developing an AI platform that provides value-able Behavioural
         <br />Advice to every type of retail investor, regardless of their
         <br />
         experience, trading style or asset preference
       </p>
-      <p class="text-center" style="color: #5800ff">
-        <strong>Curently in "Stealth Mode" </strong>
+      <p class="text-center" style="color: #5800ff; font-size: 1.5vh;">
+        <strong>Currently in "Stealth Mode" </strong>
       </p>
     </div>
     <br />
@@ -197,10 +215,10 @@
     <br /><br />
     <div ref="product" class="productref mt-5">
       <h1 class="productPart text-center" style="color: black">Product</h1>
-      <p class="text-center" style="color: #5800ff">
+      <p class="text-center" style="color: black; font-size: 1.5vh">
         <strong>Behavioural Analytics as a Service</strong>
       </p>
-      <p class="text-center" style="color: black">
+      <p class="text-center" style="color: black; font-size: 1.5vh;">
         Everyone has Personal biases, subconscious behaviours <br />that affect
         our decisions, but there biases should not <br />
         cost you money
@@ -209,42 +227,50 @@
         <v-flex xs6 offset xs-1 sm6 offset-sm1 md6 offset-md1>
           <v-row dense>
             <v-col class="mb-3"
-              cols="12"
-              sm="6"
-              md="5"
-              lg="4"
-              v-for="cardItem in cardItem"
-              :key="cardItem"
+                   cols="12"
+                   sm="6"
+                   md="5"
+                   lg="4"
+                   v-for="cardItem in cardItem"
+                   :key="cardItem"
             >
               <!-- max-width="300"
             height="250" -->
 
               <v-card
-                height="100%"
-                class="cardItem mx-auto"
-                outlined
-                style="'display: flex;background: rgb(16 29 40);border: 2px solid white"
+                  height="100%"
+                  class="cardItem mx-auto"
+                  outlined
+                  style="'display: flex;background: rgb(16 29 40);border: 2px solid white"
               >
-                <v-card-title
-                  v-if="$vuetify.breakpoint.xsOnly"
-                  class="justify-center"
+<!--                <v-card-title-->
+<!--                    v-if="$vuetify.breakpoint.xsOnly"-->
+<!--                    class="justify-center"-->
+<!--                >-->
+<!--                  <p-->
+<!--                      class="text-center"-->
+<!--                      style="color: white; display: inline; font-size: 11px; font-weight: bold"-->
+<!--                  >-->
+<!--                    {{ cardItem.title }}-->
+<!--                  </p>-->
+<!--                </v-card-title>-->
+<!--                <v-card-title v-else class="justify-center">-->
+<!--                  <p class="text-center" style="color: white; display: inline">-->
+<!--                    <strong>{{ cardItem.title }}</strong>-->
+<!--                  </p>-->
+<!--                </v-card-title>-->
+                <div>
+                <p
+                    class="text-center mt-2" style="font-size: 16px; font-weight: bold"
                 >
-                  <p
-                    class="text-center"
-                    style="color: white; display: inline; font-size: 10px"
-                  >
-                    <strong>{{ cardItem.title }}</strong>
-                  </p>
-                </v-card-title>
-                <v-card-title v-else class="justify-center">
-                  <p class="text-center" style="color: white; display: inline">
-                    <strong>{{ cardItem.title }}</strong>
-                  </p>
-                </v-card-title>
-                <p class="text-center">
+                  {{ cardItem.title }}
+                </p>
+                </div>
+
+                <p class="text-center" style="font-size: 14px">
                   {{ cardItem.text }}
                   <span
-                    ><strong>{{ cardItem.text2 }}</strong></span
+                  ><strong>{{ cardItem.text2 }}</strong></span
                   >
                 </p>
               </v-card>
@@ -255,13 +281,13 @@
     </div>
     <div>
       <div
-        ref="team"
-        class="teamref mt-16"
-        style="margin-top: 200px; padding-bottom: 100px"
+          ref="team"
+          class="teamref mt-16"
+          style="margin-top: 200px; padding-bottom: 100px"
       >
         <h1
-          class="teamPart text-center"
-          style="
+            class="teamPart text-center"
+            style="
             font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;
           "
         >
@@ -269,24 +295,24 @@
         </h1>
         <v-row justify="center">
           <v-col
-            cols="auto"
-            sm="6"
-            md="5"
-            lg="5"
-            v-for="(teamItem, index) in teamItem"
-            :key="teamItem"
+              cols="auto"
+              sm="6"
+              md="5"
+              lg="5"
+              v-for="(teamItem, index) in teamItem"
+              :key="teamItem"
           >
             <div class="text-center ml-3">
               <v-avatar tile color="" size="170">
                 <v-img
-                  @click="opening(index)"
-                  :src="require(`../assets/${teamItem.photo}`)"
-                  alt="foto"
-                  class="img-card"
+                    @click="opening(index)"
+                    :src="require(`../assets/${teamItem.photo}`)"
+                    alt="foto"
+                    class="img-card"
                 />
               </v-avatar>
               <p
-                style="
+                  style="
                   color: white;
                   font-family: monospace;
                   font-size: larger;
@@ -297,18 +323,23 @@
                 {{ teamItem.name }}
               </p>
               <p
-                style="color: rgb(56 200 244) font-size: 2vh; font-weight: 300"
+                  style="color: rgb(56 200 244) font-size: 2vh; font-weight: 300"
               >
                 <strong>{{ teamItem.role }}</strong>
               </p>
+              <p
+                  style="color: rgb(56 200 244) font-size: 2vh; font-weight: 300"
+              >
+                <strong>{{ teamItem.role_1 }}</strong>
+              </p>
               <div class="mt-8">
                 <v-card
-                  v-show="itemToShow == index"
-                  class="mx-auto"
-                  max-width="30vh"
-                  height="100%"
+                    v-show="itemToShow == index"
+                    class="mx-auto"
+                    max-width="30vh"
+                    height="100%"
                 >
-                  <p style="color: black">
+                  <p style="color: black; font-size: 1.5vh">
                     {{ teamItem.description }}
                   </p>
                 </v-card>
@@ -319,9 +350,9 @@
       </div>
 
       <div
-        ref="contact"
-        class="contactref mt-16 mb-16"
-        style="margin-top: 200px; padding-bottom: 100px"
+          ref="contact"
+          class="contactref mt-16 mb-16"
+          style="margin-top: 200px; padding-bottom: 100px"
       >
         <h1 style="color: white" class="contactPart text-center">Contact Us</h1>
         <v-card class="mx-auto mt-5" max-width="500" color="#F7F7F7">
@@ -335,30 +366,31 @@
               </v-row>
             </v-col>
             <v-divider
-              vertical
-              style="border-color: black !important"
+                vertical
+                style="border-color: black !important"
             ></v-divider>
             <v-col align="center">
               <!-- <p style="color: black">Follow Us</p> -->
               <v-img
-                style="margin-top: 1%"
-                v-on:click="page()"
-                height="30"
-                width="30"
-                src="../assets/image (11).png"
+                  style="margin-top: 1%"
+                  v-on:click="page()"
+                  height="30"
+                  width="30"
+                  src="../assets/image (11).png"
               ></v-img>
             </v-col>
           </v-row>
         </v-card>
       </div>
+
       <v-footer
-        style="background: rgb(16 29 40)"
-        color="darken-3 white--text"
-        padless
+          style="background: rgb(16 29 40)"
+          color="darken-3 white--text"
+          padless
       >
         <v-row>
           <v-col>
-            <p class="text-center mt-4">
+            <p class="text-center mt-4" style="color: white; font-size: 1.5vh;">
               Confidential and Proprietary. Copyright (c) tradegenie.ai. All
               Rights Reserved.
             </p>
@@ -393,16 +425,18 @@ export default {
       {
         photo: "alex_pic.png",
         name: "Alex Papakyriacou",
-        role: "Founder & Managing Director",
+        role: "Managing Director",
+        role_1:"Founder",
         description:
-          "Alex has worked with major financial institutions across the UK, Ireland and Cyprus, including a Stock Exchange, a major Broker and various Asset Manager & Hedge funs. Alex draws upon these experiences and his knowledge of business, finance, and data science to turn a novel concept into the go-to behavioural analytics platform for retail investor trading online",
+            "Alex has worked with major financial institutions across the UK, Ireland and Cyprus, including a Stock Exchange, a major Broker and various Asset Manager & Hedge funs. Alex draws upon these experiences and his knowledge of business, finance, and data science to turn a novel concept into the go-to behavioural analytics platform for retail investor trading online",
       },
       {
         photo: "alex_pic.png",
         name: "XYZ",
         role: "Chief Technology Officer",
+        role_1:"Co-Founder",
         description:
-          "XYZ excels at designing, developing and managing large scale end-to-end applications from the ground-up. With over 11 years of combined experience from across the finance, media and consulting industries, and a proven track record of leading AI/ML technology from innovative start-ups to established corporates, XYZ is set on building a product that traders love to use.",
+            "XYZ excels at designing, developing and managing large scale end-to-end applications from the ground-up. With over 11 years of combined experience from across the finance, media and consulting industries, and a proven track record of leading AI/ML technology from innovative start-ups to established corporates, XYZ is set on building a product that traders love to use.",
       },
     ],
     cardItem: [
@@ -430,6 +464,7 @@ export default {
         src: "../assets/digit/tg_logo (2).png",
       },
     ],
+    windowWidth: window.innerWidth,
     isMobile: false,
     isTablet: false,
     isDesktop: false,
@@ -440,6 +475,10 @@ export default {
     console.log("tablet", this.isTablet);
     console.log("mobile", this.isMobile);
     console.log("mobile", this.isMobile);
+
+    window.onresize = () => {
+      this.windowWidth = window.innerWidth
+    }
   },
   // beforeDestroy() {
   //   if (typeof window !== "undefined") {
