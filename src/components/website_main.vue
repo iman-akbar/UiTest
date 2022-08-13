@@ -323,12 +323,12 @@
                 {{ teamItem.name }}
               </p>
               <p
-                  style="color: rgb(56 200 244) font-size: 2vh; font-weight: 300"
+                  style="color: rgb(56 200 244); font-size: 2vh; font-weight: 300"
               >
                 <strong>{{ teamItem.role }}</strong>
               </p>
               <p
-                  style="color: rgb(56 200 244) font-size: 2vh; font-weight: 300"
+                  style="color: rgb(56 200 244); font-size: 2vh; font-weight: 300"
               >
                 <strong>{{ teamItem.role_1 }}</strong>
               </p>
@@ -476,7 +476,7 @@ export default {
     console.log("mobile", this.isMobile);
     console.log("mobile", this.isMobile);
 
-    window.onresize = () => {
+    window.onresize =() =>{
       this.windowWidth = window.innerWidth
     }
   },
