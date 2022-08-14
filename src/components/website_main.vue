@@ -120,6 +120,7 @@
 
     <v-app-bar
         v-else-if="isTablet"
+        v-bind:style= "[windowWidth == '820' ? {'height': '7vh',  } : {'height': '12vh'}]"
         style="
         background-color: rgb(16 29 40);
         color: ghostwhite;
@@ -129,12 +130,13 @@
         text-align: justify;
         align-content: space-evenly !important;
 
-        height: 12vh;
+
+
       "
         fixed
     >
-      <v-row v-if="windowWidth = 820">
-        <v-col class="ml-1 mt-3" cols="6">
+      <v-row v-if="windowWidth == '820'" style="margin-top: 2%">
+        <v-col class="ml-1 mt-6" cols="6">
           <v-img
               @click="action1"
               height="60"
@@ -144,13 +146,13 @@
         </v-col>
         <v-col   v-for="i in items"
                  :key="i"
-                 class="mt-9">
-          <a  @click="goto(i.path)" style="color: ghostwhite;font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;font-size: 14px">{{
+                 class="mt-16">
+          <p  @click="goto(i.path)" style="color: ghostwhite;font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;font-size: 14px">{{
               i.title
-            }}</a>
+            }}</p>
         </v-col>
       </v-row>
-      <v-row v-else style="margin-top: 1%">
+      <v-row v-else style="margin-top: 3%">
         <v-col class="ml-1 mt-0" cols="6">
           <v-img
               @click="action1"
@@ -162,9 +164,9 @@
         <v-col   v-for="i in items"
                  :key="i"
                  class="mt-9">
-          <a  @click="goto(i.path)" style="color: ghostwhite;font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;">{{
+          <p  @click="goto(i.path)" style="color: ghostwhite;font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;">{{
               i.title
-            }}</a>
+            }}</p>
         </v-col>
       </v-row>
     </v-app-bar>
@@ -456,13 +458,14 @@ export default {
   mounted() {
     this.onResize();
     window.addEventListener("resize", this.onResize, { passive: true });
-    console.log("tablet", this.isTablet);
-    console.log("mobile", this.isMobile);
-    console.log("mobile", this.isMobile);
+    // console.log("tablet", this.isTablet);
+    // console.log("mobile", this.isMobile);
+    // console.log("mobile", this.isMobile);
 
     window.onresize =() =>{
       this.windowWidth = window.innerWidth
     }
+    console.log(this.windowWidth)
   },
   // beforeDestroy() {
   //   if (typeof window !== "undefined") {
