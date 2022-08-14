@@ -243,22 +243,6 @@
                   outlined
                   style="'display: flex;background: rgb(16 29 40);border: 2px solid white"
               >
-<!--                <v-card-title-->
-<!--                    v-if="$vuetify.breakpoint.xsOnly"-->
-<!--                    class="justify-center"-->
-<!--                >-->
-<!--                  <p-->
-<!--                      class="text-center"-->
-<!--                      style="color: white; display: inline; font-size: 11px; font-weight: bold"-->
-<!--                  >-->
-<!--                    {{ cardItem.title }}-->
-<!--                  </p>-->
-<!--                </v-card-title>-->
-<!--                <v-card-title v-else class="justify-center">-->
-<!--                  <p class="text-center" style="color: white; display: inline">-->
-<!--                    <strong>{{ cardItem.title }}</strong>-->
-<!--                  </p>-->
-<!--                </v-card-title>-->
                 <div>
                 <p
                     class="text-center mt-2" style="font-size: 16px; font-weight: bold"
