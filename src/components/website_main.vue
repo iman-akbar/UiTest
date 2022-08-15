@@ -176,55 +176,52 @@
           style="width: 100%; height: auto"
           width="460"
           height="345"
-          src="../assets/digital-graph-with-businessman-hand-overlay-MODIFIED (1).png"
+          src="../assets/landing_page.png"
       ></v-img>
     </div>
     <div v-else-if="isDesktop">
       <v-img
-          src="../assets/digital-graph-with-businessman-hand-overlay-MODIFIED (1).png"
+          src="../assets/landing_page.png"
       ></v-img>
     </div>
     <div v-else-if="$vuetify.breakpoint.mdOnly" style="margin-top: 85px">
       <v-img
           height="400"
-          src="../assets/digital-graph-with-businessman-hand-overlay-MODIFIED (1).png"
+          src="../assets/landing_page.png"
       ></v-img>
     </div>
     <div v-else-if="isTablet">
       <v-img
           class="mt-16"
           height="400"
-          src="../assets/digital-graph-with-businessman-hand-overlay-MODIFIED (1).png"
+          src="../assets/landing_page.png"
       ></v-img>
     </div>
     <div ref="about" class="aboutref">
-      <h1 class="aboutPart text-center" style="color: black">About</h1>
-      <p class="text-center" style="color: #5800ff; font-size: 1.5vh;">
-        <strong>An early-stage Fintech Start-up base in Cyprus</strong>
-      </p>
-      <p class="text-center" style="color: black; font-size: 1.5vh;">
+      <h1 class="aboutPart text-center" style="color: white; margin-top: 2%;">About</h1>
+
+      <p class="text-center" style="color: white; font-size: 2vh; margin-top: 1%; margin-bottom:  7%">
         Developing an AI platform that provides value-able Behavioural
         <br />Advice to every type of retail investor, regardless of their
         <br />
         experience, trading style or asset preference
       </p>
-      <p class="text-center" style="color: #5800ff; font-size: 1.5vh;">
-        <strong>Currently in "Stealth Mode" </strong>
-      </p>
+
     </div>
     <div ref="product" class="productref">
-      <h1 class="productPart text-center" style="color: black">Product</h1>
-      <p class="text-center" style="color: black; font-size: 1.5vh">
-        <strong>Behavioural Analytics as a Service</strong>
-      </p>
-      <p class="text-center" style="color: black; font-size: 1.5vh;">
-        Everyone has Personal biases, subconscious behaviours <br />that affect
-        our decisions, but there biases should not <br />
+      <h1 class="productPart text-center" style="color: black; margin-top: 2%">Behaviour Analytics</h1>
+<!--      <p class="text-center" style="color: black; font-size: 2vh">-->
+<!--        <strong>Behavioural Analytics as a Service</strong>-->
+<!--      </p>-->
+      <p class="text-center" style="color: black; font-size: 2vh;">
+        Everyone has Personal biases, subconscious behaviours that affect
+        our decisions, but there biases should not
         cost you money
       </p>
       <v-layout wrap align-center justify-center>
-        <v-flex xs6 offset xs-1 sm6 offset-sm1 md6 offset-md1>
-          <v-row dense>
+<!--        <v-flex xs6 offset xs-1 sm6 offset-sm1 md6 offset-md1>-->
+          <v-flex sm7 offset >
+          <v-row dense class="mb-10 mt-4">
             <v-col class="mb-3"
                    cols="12"
                    sm="6"
@@ -238,6 +235,7 @@
 
               <v-card
                   height="100%"
+                  width="90%"
                   class="cardItem mx-auto"
                   outlined
                   style="'display: flex;background: rgb(16 29 40);border: 2px solid white"
@@ -266,7 +264,7 @@
       <div
           ref="team"
           class="teamref"
-          style="padding-bottom: 100px"
+          style="padding-bottom: 80px; margin-top: 2%"
       >
         <h1
             class="teamPart text-center"
@@ -300,21 +298,24 @@
                   font-family: monospace;
                   font-size: larger;
                   font-weight: bolder;
-                  margin-bottom: 16px;
+
                 "
               >
-                {{ teamItem.name }}
+                {{ teamItem.name }} <br />
+                <span style="color: rgb(56 200 244); font-size: 2vh; font-weight: 300">{{ teamItem.role }} <br />
+                  {{ teamItem.role_1 }} </span>
               </p>
-              <p
-                  style="color: rgb(56 200 244); font-size: 2vh; font-weight: 300"
-              >
-                <strong>{{ teamItem.role }}</strong>
-              </p>
-              <p
-                  style="color: rgb(56 200 244); font-size: 2vh; font-weight: 300"
-              >
-                <strong>{{ teamItem.role_1 }}</strong>
-              </p>
+<!--              <p-->
+<!--                  style="color: rgb(56 200 244); font-size: 2vh; font-weight: 300"-->
+<!--              >-->
+<!--                <strong>{{ teamItem.role }} <br />-->
+<!--                  {{ teamItem.role_1 }}</strong>-->
+<!--              </p>-->
+<!--              <p-->
+<!--                  style="color: rgb(56 200 244); font-size: 2vh; font-weight: 300"-->
+<!--              >-->
+<!--                <strong>{{ teamItem.role_1 }}</strong>-->
+<!--              </p>-->
               <div class="mt-8">
                 <v-card
                     v-show="itemToShow == index"
@@ -334,10 +335,10 @@
 
       <div
           ref="contact"
-          class="contactref mt-16 mb-16"
-          style="margin-top: 200px; padding-bottom: 100px"
+          class="contactref mt-1"
+          style="margin-top: 200px; "
       >
-        <h1 style="color: white" class="contactPart text-center">Contact Us</h1>
+        <h1 style="color: white;" class="contactPart text-center">Contact Us</h1>
         <v-card class="mx-auto mt-5" max-width="500" color="#F7F7F7">
           <v-row>
             <v-col class="ml-5">
@@ -472,11 +473,12 @@ export default {
   methods: {
     opening(e) {
       console.log(this.itemToShow);
-      if (e === this.itemToShow) {
-        this.itemToShow = -1;
-      } else {
-        this.itemToShow = e;
-      }
+      console.log(e)
+      // if (e === this.itemToShow) {
+      //   this.itemToShow = -1;
+      // } else {
+      //   this.itemToShow = e;
+      // }
     },
     expand(e) {
       console.log(e);
@@ -548,21 +550,25 @@ export default {
 
 .productref {
   /*border-style: outset;*/
+  margin-left: 1%;
+  margin-right: 1%;
+  border-radius: 20px;
   border-color: gainsboro;
   border-width: revert;
   background: white;
 }
 
 .aboutref {
+  background: rgb(16 29 40);
   /*border-style: outset;*/
   border-color: gainsboro;
   border-width: revert;
-  background: white;
+  /*background: white;*/
 }
 
 h1 {
   font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;
-  border-bottom: outset;
+  /*border-bottom: outset;*/
 }
 
 p {
@@ -576,11 +582,14 @@ h1 {
 }
 
 .bgColor {
-  /* background: rgb(16 29 40); */
-  background: white;
+   background: rgb(16 29 40);
+  /*background: white;*/
 }
 
 .contactPart {
+  border-bottom: 2px outset;
+  margin-right: 2%;
+  margin-left: 2%;
   /* margin-top: 10%; */
   margin-bottom: 5%;
 }
@@ -590,7 +599,10 @@ h1 {
 }
 
 .productPart {
-  margin-bottom: 5%;
+  margin-bottom: 1%;
+  border-bottom: 2px outset;
+  margin-right: 23%;
+  margin-left: 23%;
 }
 
 .aboutPart {
@@ -620,6 +632,6 @@ img {
 
 .cardItem {
   border-radius: 20px;
-  box-shadow: -1px -3px 0px 5px rgba(21, 41, 148, 0.56) !important;
+  /*box-shadow: -1px -3px 0px 5px rgba(21, 41, 148, 0.56) !important;*/
 }
 </style>
