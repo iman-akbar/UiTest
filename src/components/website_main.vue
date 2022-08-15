@@ -197,7 +197,7 @@
           src="../assets/digital-graph-with-businessman-hand-overlay-MODIFIED (1).png"
       ></v-img>
     </div>
-    <div ref="about" class="aboutref mt-10">
+    <div ref="about" class="aboutref">
       <h1 class="aboutPart text-center" style="color: black">About</h1>
       <p class="text-center" style="color: #5800ff; font-size: 1.5vh;">
         <strong>An early-stage Fintech Start-up base in Cyprus</strong>
@@ -212,10 +212,7 @@
         <strong>Currently in "Stealth Mode" </strong>
       </p>
     </div>
-    <br />
-    <br />
-    <br /><br />
-    <div ref="product" class="productref mt-5">
+    <div ref="product" class="productref">
       <h1 class="productPart text-center" style="color: black">Product</h1>
       <p class="text-center" style="color: black; font-size: 1.5vh">
         <strong>Behavioural Analytics as a Service</strong>
@@ -268,8 +265,8 @@
     <div>
       <div
           ref="team"
-          class="teamref mt-16"
-          style="margin-top: 200px; padding-bottom: 100px"
+          class="teamref"
+          style="padding-bottom: 100px"
       >
         <h1
             class="teamPart text-center"
@@ -537,27 +534,27 @@ export default {
 <style scoped>
 .contactref {
   background: rgb(16 29 40);
-  border-style: outset;
+  /*border-style: outset;*/
   border-color: gainsboro;
   border-width: revert;
 }
 
 .teamref {
-  border-style: outset;
+  /*border-style: outset;*/
   border-color: gainsboro;
   border-width: revert;
   background: rgb(16 29 40);
 }
 
 .productref {
-  border-style: outset;
+  /*border-style: outset;*/
   border-color: gainsboro;
   border-width: revert;
   background: white;
 }
 
 .aboutref {
-  border-style: outset;
+  /*border-style: outset;*/
   border-color: gainsboro;
   border-width: revert;
   background: white;
@@ -597,7 +594,7 @@ h1 {
 }
 
 .aboutPart {
-  margin-bottom: 3%;
+  /*margin-bottom: 3%;*/
 }
 
 a {
