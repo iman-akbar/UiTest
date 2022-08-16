@@ -160,6 +160,23 @@ border-style: outset;
             }}</p>
         </v-col>
       </v-row>
+      <v-row v-else-if="windowWidth > '1300'" style="margin-top: 1%">
+        <v-col class="ml-1" cols="6">
+          <v-img
+              @click="action1"
+              height="60"
+              width="160"
+              src="../assets/new_logo.png"
+          ></v-img>
+        </v-col>
+        <v-col   v-for="i in items"
+                 :key="i"
+                 class="mt-8">
+          <p  @click="goto(i.path)" style="color: ghostwhite;font-family: helvetica-w01-light, helvetica-w02-light, sans-serif;font-size: 14px">{{
+              i.title
+            }}</p>
+        </v-col>
+      </v-row>
       <v-row v-else style="margin-top: 3%">
         <v-col class="ml-1 mt-0" cols="6">
           <v-img
