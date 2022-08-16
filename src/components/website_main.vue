@@ -1,6 +1,8 @@
 <template>
   <v-app class="bgColor">
+
     <v-app-bar
+        outlined
         v-if="isMobile"
         style="
         background-color: rgb(16 29 40);
@@ -9,7 +11,8 @@
         font-size: 2vh;
         font-weight: bold;
         text-align: justify;
-
+        border-style: outset;
+        border-color: white;
         height: 10vh;
       "
         height="40"
@@ -71,6 +74,8 @@
         text-align: justify;
         align-content: space-evenly !important;
         height: 13vh;
+        border-style: outset;
+        border-color: white;
       "
         height="90"
         fixed
@@ -100,6 +105,8 @@
         text-align: justify;
         align-content: space-evenly !important;
         height: 13vh;
+        border-style: outset;
+        border-color: white;
       "
         height="90"
         fixed
@@ -129,7 +136,8 @@
         font-weight: bold;
         text-align: justify;
         align-content: space-evenly !important;
-
+border-style: outset;
+        border-color: white;
 
 
       "
@@ -179,7 +187,7 @@
           src="../assets/landing_page.png"
       ></v-img>
     </div>
-    <div v-else-if="isDesktop">
+    <div v-else-if="isDesktop" >
       <v-img
           src="../assets/landing_page.png"
       ></v-img>
@@ -250,7 +258,7 @@
 
                 <p class="text-center" style="font-size: 14px">
                   {{ cardItem.text }}
-                  <span
+                  <span style="color: rgb(56, 200, 244)"
                   ><strong>{{ cardItem.text2 }}</strong></span
                   >
                 </p>
@@ -323,7 +331,12 @@
                     max-width="30vh"
                     height="100%"
                 >
-                  <p style="color: black; font-size: 1.5vh">
+                  <p style=" color: white;
+  font-size: 1.5vh!important;
+  border-style: solid;
+  background-color: #101D28;
+  border-width: thin;
+  padding: 1vh;">
                     {{ teamItem.description }}
                   </p>
                 </v-card>
@@ -356,7 +369,7 @@
             <v-col align="center">
               <!-- <p style="color: black">Follow Us</p> -->
               <v-img
-                  style="margin-top: 1%"
+                  style="margin-top: 1%; margin-bottom: 6%"
                   v-on:click="page()"
                   height="30"
                   width="30"
@@ -374,7 +387,7 @@
       >
         <v-row>
           <v-col>
-            <p class="text-center mt-4" style="color: white; font-size: 1.5vh;">
+            <p class="text-center" style="color: white; font-size: 1.5vh; margin-top: 6%">
               Confidential and Proprietary. Copyright (c) tradegenie.ai. All
               Rights Reserved.
             </p>
@@ -474,11 +487,11 @@ export default {
     opening(e) {
       console.log(this.itemToShow);
       console.log(e)
-      // if (e === this.itemToShow) {
-      //   this.itemToShow = -1;
-      // } else {
-      //   this.itemToShow = e;
-      // }
+      if (e === this.itemToShow) {
+        this.itemToShow = -1;
+      } else {
+        this.itemToShow = e;
+      }
     },
     expand(e) {
       console.log(e);
